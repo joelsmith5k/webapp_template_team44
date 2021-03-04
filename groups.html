@@ -1,67 +1,186 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>My BCIT Project</title>
-    <meta name="comp1800 boilerplate code" content="my bcit project">
-    <meta name="author" content="BCIT">
+    <meta name="comp1800 boilerplate code" content="my bcit project" />
+    <meta name="author" content="BCIT" />
 
     <!-- Bootstrap for Mobile-first, and JQuery -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
 
     <!-- Optional styles and scripts of your own -->
+  </head>
 
-
-</head>
-
-<body>
-
+  <body>
     <!-------------------------------------->
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
     <!-- Header Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Cineder</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">User Settings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Groups</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Matching</a>
-                    </li>
-                </ul>
-            </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Cineder</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >User Settings</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Groups</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Matching</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
-
     <div class="container">
-        <h1 class="display-4">Hello, World!</h1>
+      <h1 class="display-6">Choose from your existing groups:</h1>
     </div>
-
+    <div>
+        <p></p>
+    </div>
+    <div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            <div class="card">
+              <img src="./images/empty_cinema.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">The Boys</h5>
+                <p class="card-text">
+                  This is a brief description of the users "The Boys" group. Maybe there are some inside jokes here!
+                </p>
+              </div>
+            </div>
+          </div>
+      <div class="col">
+        <div class="card">
+          <img src="./images/projector.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Horror Fan Friends</h5>
+            <p class="card-text">
+                This is a brief description of the users "Horror Fan Friends" group!
+                Maybe they include some spooky film quotes here.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="./images/full_cinema.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">~ Housemates ~</h5>
+            <p class="card-text">
+              This is a brief description of the users "Housemates" group. Maybe there are some inside jokes here!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="./images/stand-up-comedy.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Comedy Lovers</h5>
+            <p class="card-text">
+              This is a brief description of the users "Comedy Lovers" group. Maybe there  is a funny quote here.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+        <h1 class="display-6"></h1>
+      </div>
+      <div>
+          <p></p>
+      </div>
+      <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
+              <div class="card">
+                <img src="./images/friend_group.jpg" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Highschool Friends</h5>
+                  <p class="card-text">
+                    This is a brief description for the user's "Highschool Friends" group - 
+                    this must be a great way to stay in touch.
+                  </p>
+                </div>
+              </div>
+            </div>
+        <div class="col">
+          <div class="card">
+            <img src="./images/doc_cam.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Documentary Squad</h5>
+              <p class="card-text">
+                  This is a brief description of the users "Documentary Squad" group! It could include 
+                  some information about the group members. Testing adding more text to this box to
+                  make it line up better? Hmmmm, it seems i would
+                  have to add a lot of text - there must be a better way to guarantee these cards are
+                  always the same size.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="./images/projector.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">A Slightly Older Group</h5>
+              <p class="card-text">
+                This is a group the user hasn't used in a while - they will be sorted 
+                    based on recency of use.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="./images/full_cinema.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Family :)</h5>
+              <p class="card-text">
+                This is a brief description of the users "Family" group.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
     <!----------------------------------------------->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
 
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
-
-</body>
-
+  </body>
 </html>
