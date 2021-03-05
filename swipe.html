@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>My BCIT Project</title>
+    <title>Cineder Swipe</title>
     <meta name="comp1800 boilerplate code" content="my bcit project">
     <meta name="author" content="BCIT">
 
@@ -14,7 +14,34 @@
 
 
     <!-- Optional styles and scripts of your own -->
+    <style>
+        #body_container {
+            height: 600px;
+            text-align: center;
+            border: 1px solid black;
+            background-color: whitesmoke;
+        }
 
+        #top_grid {
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        #bottom_grid {
+            text-align: center;
+            border: 1px solid black;
+        }
+        
+        .col-sm {
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+        .container {
+            background-color: lightgrey;
+        }
+
+    </style>
 
 </head>
 
@@ -24,9 +51,45 @@
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
 
-    <div class="container">
+    <div class="container" id="top_grid">
+        <div class="row">
+          <div class="col-sm">
+            Group Settings
+          </div>
+          <div class="col-sm">
+              <b>GROUP NAME</b>
+          </div>
+          <div class="col-sm">
+            Matches
+          </div>
+        </div>
+      </div>
+
+    <div class="container" id="body_container">
+        <br></br>
         <h1 class="display-4">Greetings weary traveller, and welcome to Cineder!</h1>
+        <br></br>
+        <br></br>
+        <br></br>
+        <img src="./images/swipe.png" width="100" height="100">
+        <br></br>
+        <h3>This is your swiping page!</h3>
     </div>
+
+    <div class="container" id="bottom_grid">
+        <div class="row">
+          <div class="col-sm">
+            User Profile
+          </div>
+          <div class="col-sm">
+            Swipe
+          </div>
+          <div class="col-sm">
+            Groups
+          </div>
+        </div>
+      </div>
+
 
 
     <!----------------------------------------------->
