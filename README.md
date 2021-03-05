@@ -11,6 +11,9 @@ Test Test Test
 
 Martin Gatchev
     Creator of the swipe.html
+
+Kazuma Kunogi
+    Creator of the profile.html
 	
 ## Technologies
 Technologies used for this project:
