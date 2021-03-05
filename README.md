@@ -14,6 +14,7 @@ Martin Gatchev
 
 Kazuma Kunogi
     Creator of the profile.html
+    Creator of the profile_group.html
 	
 ## Technologies
 Technologies used for this project:
