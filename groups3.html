@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Join A Group</title>
+    <title>Create A Group</title>
     <meta name="comp1800 boilerplate code" content="my bcit project" />
     <meta name="author" content="BCIT" />
 
@@ -20,27 +20,61 @@
 
     <!-- Optional styles and scripts of your own -->
     <style>
-      #inputBox{
-        text-align: center;
-        background-color: lightgray;
-      }
 
-      #searchBox{
-        width: 18rem;
-        text-align:center;
+      #groupInfoBox{
         margin:auto;
+        width: 50%;
         background-color: lightgray;
+        border-radius: 4px;
+          /* text-align: center; */
       }
 
-      .groupButtons{
+      .inputField{
+        margin-top: 3%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1%;
+      }
+
+      .textField{
+        width: 85%;
+        margin:auto;
+      }
+
+      .inputLabels{
+        margin-left: 10%;
+      }
+
+      #createButtonBox{
+        width: 25%;
+        margin: auto;
+        padding: 1%;
+      }
+
+      .button{
+        width: 100%;
+        margin: auto;
         color: whitesmoke;
         background-color: #333333;
+        padding:2%;
       }
 
-      #inputParent{
-        padding:75px
+      #infoInputBox{
+        padding: 1.5%;
       }
 
+      #shareLinkBox{
+        margin:auto;
+        width: 50%;
+        background-color: lightgray;
+        border-radius: 4px;
+      }
+
+      .shareLink{
+          width: 75%;
+          margin:auto;
+          padding: 2%;
+      }
     </style>
   </head>
 
@@ -80,32 +114,40 @@
         </div>
       </div>
     </nav>
-    <div id = "inputParent">
-        <div class="card" id = "inputBox">
-            <div class="card-header">
-              Have your friends send you their share link, then paste it here to join their group!
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Paste your link in the box below:</h5>
-              <div class="form-group">
-                <label for="exampleInputPassword1"></label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Your friend's code goes here">
-              </div>
-              <p></p>
-              <p class="card-text">We can't wait to connect you with your friends!</p>
-              <a href="#" class="btn groupButtons">Join Group Now</a>
-            </div>
-          </div>
-    </div>
-    <div>
-    <div class="card" id = "searchBox">
-        <img class="card-img-top" src="./images/magnifyingGlass.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Can't get a hold of your friend?</h5>
-          <p class="card-text">Click here to search for a group and request access:</p>
-          <a href="#" class="btn groupButtons">Search Groups</a>
+    <div id = "infoInputBox">
+        <div id = "groupInfoBox">
+            <form>
+                <div class="form-group inputField">
+                  <label for="formGroupExampleInput" class ="inputLabels">New Group Name:</label>
+                  <input type="text" class="form-control textField" id="formGroupExampleInput" placeholder="Group Title">
+                </div>
+                <div class="form-group inputField">
+                    <label for="exampleFormControlTextarea1" class ="inputLabels">New Group Description:</label>
+                    <textarea class="form-control textField" id="exampleFormControlTextarea1" rows="3" placeholder="Create a brief description for your group.."></textarea>
+                    <!-- <p> <br>
+                    </p> -->
+                </div>
+                <div id ="createButtonBox">
+                <a href="#" class="btn groupButtons button">Create Group</a>
+                </div>
+              </form>
         </div>
+    </div>
+    <div id="shareLinkBox">
+    <div class="card text-center">
+        <div class="card-header">
+          Invite Your Friends to Join!
+        </div>
+        <div class="card-body shareLink">
+          <h5 class="card-title">Share the link below to invite friends to your group:</h5>
+          <p><br></p>
+          <input type="text" class="form-control textField" id="formGroupExampleInput" placeholder="xvU007yrjkuvCMr//.">
+          <p><br></p>
+          <a href="#" class="btn button">Start Matching With Your Group</a>
+        </div>
+
       </div>
+    <div>
     </div>
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
