@@ -19,14 +19,37 @@
     />
 
     <!-- Optional styles and scripts of your own -->
+    <style>
+      #topDescription{
+        border:1px solid grey; 
+        background-color: #333333; 
+        border-radius: 5px; 
+        margin: auto;
+        color: whitesmoke;
+        text-align: center;
+      }
+
+      .matchingButton{
+        color:whitesmoke;
+        background-color: #333333;
+      }
+
+      .groupBox{
+        background-color: lightgray;
+      }
+
+      .topMessage{
+        padding: 1%;
+      }
+    </style>
   </head>
 
-  <body>
+  <body style="background-color: lightslategrey;">
     <!-------------------------------------->
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
     <!-- Header Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <nav class="navbar navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Cineder</a>
         <button
@@ -44,22 +67,22 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#"
-                >User Settings</a
+                >Swiping Page</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Groups</a>
+              <a class="nav-link" href="#">Group Settings</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Matching</a>
+              <a class="nav-link" href="#">Matches</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     <p></p>
-    <div class="container" style="border:1px solid grey; background-color: lightblue; border-radius: 5px; margin: auto;">
-      <h1 class="display-6">Choose from your existing groups:</h1>
+    <div class="container" id = "topDescription">
+      <h1 class="h4 topMessage">Choose one of your existing groups to match with:</h1>
     </div>
     <div>
         <p></p>
@@ -67,19 +90,19 @@
     <div class="container">
     <div class="row row-cols-1 row-cols-md-2 g-4">
         <div class="col">
-            <div class="card">
+            <div class="card groupBox">
               <img src="./images/empty_cinema.jpg" class="card-img-top" alt="..." />
               <div class="card-body">
                 <h5 class="card-title">The Boys</h5>
                 <p class="card-text">
                   This is a brief description of the users "The Boys" group. Maybe there are some inside jokes here!
                 </p>
-                <button type="button" class="btn btn-danger">Start Matching</button>
+                <button type="button" class="btn matchingButton">Start Matching</button>
               </div>
             </div>
           </div>
       <div class="col">
-        <div class="card">
+        <div class="card groupBox">
           <img src="./images/projector.jpg" class="card-img-top" alt="..." />
           <div class="card-body">
             <h5 class="card-title">Horror Fan Friends</h5>
@@ -87,31 +110,31 @@
                 This is a brief description of the users "Horror Fan Friends" group!
                 Maybe they include some spooky film quotes here.
             </p>
-            <button type="button" class="btn btn-danger">Start Matching</button>
+            <button type="button" class="btn matchingButton">Start Matching</button>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card">
+        <div class="card groupBox">
           <img src="./images/full_cinema.jpg" class="card-img-top" alt="..." />
           <div class="card-body">
             <h5 class="card-title">~ Housemates ~</h5>
             <p class="card-text">
               This is a brief description of the users "Housemates" group. Maybe there are some inside jokes here!
             </p>
-            <button type="button" class="btn btn-danger">Start Matching</button>
+            <button type="button" class="btn matchingButton">Start Matching</button>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card">
-          <img src="./images/stand-up-comedy.jpg" class="card-img-top" alt="..." />
+        <div class="card groupBox">
+          <img src="./images/empty_cinema.jpg" class="card-img-top" alt="..." />
           <div class="card-body">
             <h5 class="card-title">Comedy Lovers</h5>
             <p class="card-text">
               This is a brief description of the users "Comedy Lovers" group. Maybe there  is a funny quote here.
             </p>
-            <button type="button" class="btn btn-danger">Start Matching</button>
+            <button type="button" class="btn matchingButton">Start Matching</button>
           </div>
         </div>
       </div>
@@ -125,7 +148,7 @@
       <div class="container">
       <div class="row row-cols-1 row-cols-md-2 g-4">
           <div class="col">
-              <div class="card">
+              <div class="card groupBox">
                 <img src="./images/friend_group.jpg" class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title">Highschool Friends</h5>
@@ -133,26 +156,25 @@
                     This is a brief description for the user's "Highschool Friends" group - 
                     this must be a great way to stay in touch.
                   </p>
-                  <button type="button" class="btn btn-danger">Start Matching</button>
+                  <button type="button" class="btn matchingButton">Start Matching</button>
                 </div>
               </div>
             </div>
         <div class="col">
-          <div class="card">
-            <img src="./images/doc_cam.jpg" class="card-img-top" alt="..." />
+          <div class="card groupBox">
+            <img src="./images/projector.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">Documentary Squad</h5>
               <p class="card-text">
                   This is a brief description of the users "Documentary Squad" group! It could include 
-                  some information about the group members. Testing adding more text to this box to
-                  make it line up better? 
+                  some information about the group members.  
               </p>
-              <button type="button" class="btn btn-danger">Start Matching</button>
+              <button type="button" class="btn matchingButton">Start Matching</button>
             </div>
           </div>
         </div>
         <div class="col">
-          <div class="card">
+          <div class="card groupBox">
             <img src="./images/projector.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">A Slightly Older Group</h5>
@@ -160,19 +182,19 @@
                 This is a group the user hasn't used in a while - they will be sorted 
                     based on recency of use.
               </p>
-              <button type="button" class="btn btn-danger">Start Matching</button>
+              <button type="button" class="btn matchingButton">Start Matching</button>
             </div>
           </div>
         </div>
         <div class="col">
-          <div class="card">
+          <div class="card groupBox">
             <img src="./images/full_cinema.jpg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">Family :)</h5>
               <p class="card-text">
-                This is a brief description of the users "Family" group.
+                This is a brief description of the users "Family" group. Maybe there is a favourite movie quote here..
               </p>
-              <button type="button" class="btn btn-danger">Start Matching</button>
+              <button type="button" class="btn matchingButton">Start Matching</button>
             </div>
           </div>
         </div>
