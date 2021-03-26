@@ -5,12 +5,12 @@
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-  apiKey: "AIzaSyD2tA6bDF_aqFvTJ5uKEv-8yqhwdiaC46w",
-  authDomain: "march02demo-79141.firebaseapp.com",
-  projectId: "march02demo-79141",
-  storageBucket: "march02demo-79141.appspot.com",
-  messagingSenderId: "115694269419",
-  appId: "1:115694269419:web:76e40820b7e3cdb9efdfae"
+  apiKey: "AIzaSyBo8Z2nhjdAq9LiUJqVs2TaOKQNA3-2g0E",
+  authDomain: "cineder-3be64.firebaseapp.com",
+  projectId: "cineder-3be64",
+  storageBucket: "cineder-3be64.appspot.com",
+  messagingSenderId: "855842445281",
+  appId: "1:855842445281:web:281e3be0aa8ffb17d164a0"
 };
 
 // Initialize Firebase
