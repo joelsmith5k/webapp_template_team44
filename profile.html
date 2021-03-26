@@ -14,17 +14,56 @@
 
 
     <!-- Optional styles and scripts of your own -->
+    <style>
+        #topDescription {
+            border: 1px solid grey;
+            background-color: lightgray;
+            border-radius: 5px;
+            margin: auto;
+            color: #333333;
+            text-align: center;
+        }
 
+        .matchingButton {
+            color: whitesmoke;
+            background-color: #333333;
+        }
+
+        .groupBox {
+            background-color: lightgray;
+        }
+
+        .topMessage {
+            padding: 1%;
+        }
+
+        .card1 {
+            margin-left: auto;
+            margin-right: auto;
+            width: 35%;
+        }
+
+        .card2 {
+            margin-left: auto;
+            margin-right: auto;
+            width: 35%
+        }
+
+        .movieimg {
+            width: 17em;
+            height: 17em;
+        }
+    </style>
 
 </head>
 
-<body>
+<body style="background-color: #333333;">
 
     <!-------------------------------------->
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
     <!-- Header Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Cineder</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -34,61 +73,94 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">User Profile</a>
+                        <a class="nav-link active" aria-current="page" href="#">Swiping Page</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Groups</a>
+                        <a class="nav-link" href="#">Group Settings</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Matching</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        <a class="nav-link" href="#">Matches</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="row text-center">
-        <div class="col-md-14 mb-4">
-            <img class="rounded-circle" alt="100x100" src="./images/profile.jpg"
-                data-holder-rendered="true">
+    <div class="px-4 pt-0 pb-4 bg-dark">
+        <div class="media align-items-end profile-header">
+            <div class="text-center">
+                <div class="rounded mx-auto d-block card3"><img src="./images/profile.jpg" alt="..." width="400"
+                        class="rounded mb-2 img-thumbnail"></div>
+                <div class="media-body mb-5 text-white">
+                    <h4 class="mt-0 mb-0">Amme1234</h4>
+                    <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>Vancouver</p>
+                    <p> No movie, No life</p>
+                    <button type="bottun" class="btn matchingButton">Edit profile</button>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="card text-center">
-        <div class="card-header">
-            Your Profile
+
+    <div class="groupBox p-4 d-flex justify-content-end text-center">
+        <ul class="list-inline mb-0">
+            <li class="list-inline-item">
+                <h5 class="font-weight-bold mb-0 d-block">3</h5><small class="text-muted"> <i
+                        class="fa fa-picture-o mr-1"></i>Groups</small>
+            </li>
+            <li class="list-inline-item">
+                <h5 class="font-weight-bold mb-0 d-block">310</h5><small class="text-muted"> <i
+                        class="fa fa-user-circle-o mr-1"></i>Followers</small>
+            </li>
+        </ul>
+    </div>
+    <div class="card-dec text-center"></div>
+    <div class="container d-flex align-items-center justify-content-between mb-3"></div>
+    <h5 class="mb-0">Streaming Service</h5>
+    <div class="row card1">
+        <div class="card groupBox" style="width: 18rem;">
+            <img class="card-img-top movieimg" src="./images/netflix.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Net Flix</h5>
+                <a href="#" class="btn matchingButton">Edit Streaming Service</a>
+            </div>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Name: Ameee1234</h5>
-            <p class="card-text">Movie is my life.</p>
-            <button type="button" class="btn btn-link">Edit Profile</button>
+        <div class="card groupBox" style="width: 18rem;">
+            <img class="card-img-top movieimg" src="./images/primevideo.jpeg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title mo">Prime Video</h5>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-6">
-          <div class="card text-center">
-            <div class="card-body">
-              <h5 class="card-title">Streaming Service</h5>
-              <p class="card-text">Netflix</p>
-              <p class="card-text">Amazon Prime</p>
-              <p class="card-text">Disney plus </p>
-              <button type="button" class="btn btn-link">Edit streaming service</button>
+    </div>
+    </div>
+    <div class="card-deck card2">
+        <div class="container d-flex justify-content-between mb-4"></div>
+        <h5 class="mb-0">Favorite Genre</h5>
+        <div class="row">
+            <div class="card groupBox card3" style="width: 18rem; height: 25rem">
+                <p>Favorite Genre</p>
+                <img class="card-img-top movieimg" src="./images/anime.jpeg" alt="Card image cap">
+                <div class="card-body">
+
+                    <h5 class="card-title">Anime</h5>
+                    <a href="#" class="btn matchingButton">Edit Favorite Genre</a>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="card text-center">
-            <div class="card-body">
-              <h5 class="card-title">Genre</h5>
-              <p class="card-text">Anime</p>
-              <p class="card-text">Mystery</p>
-              <p class="card-text">Comedy</p>
-              <button type="button" class="btn btn-link">Edit Genre</button>
+            <div class="card groupBox" style="width: 19rem; height: 25rem">
+                <p>Favorite Genre</p>
+                <img class="card-img-top movieimg" src="./images/romance.jpeg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Romance</h5>
+                </div>
             </div>
-          </div>
+            <div class="card groupBox" style="width: 19rem; height: 25em">
+                <p>Favorite Genre</p>
+                <img class="card-img-top movieimg" src="./images/mystery.jpeg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Mystery</h5>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
 
     <footer>
     </footer>
