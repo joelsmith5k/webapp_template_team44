@@ -155,7 +155,7 @@
         <h1 class="display-4">Let's get you logged in!</h1>
         <div id="firebaseui-auth-container"></div>
         <div id="loader">Loading...</div>
-    </div>
+      </div>
   
 
     
@@ -175,20 +175,15 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
     
     <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
 
 
     <!-- Link to the api keys for your firebase project -->
     <script src="scripts/firebase_api_marti.js"></script>
-
-
-
-    <script>
-      // Initialize the FirebaseUI Widget using Firebase.
-      var ui = new firebaseui.auth.AuthUI(firebase.auth());
-    </script>
 
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
@@ -200,11 +195,34 @@
       var uiConfig = {
         callbacks: {
           signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-            // User successfully signed in.
-            // Return type determines whether we continue the redirect automatically
-            // or whether we leave that to developer to handle.
-            return true;
-          },
+                    // User successfully signed in.
+                    // Return type determines whether we continue the redirect automatically
+                    // or whether we leave that to developer to handle.
+                    //------------------------------------------------------------------------------------------
+                    // The code below is modified from default snippet provided by the FB documentation.
+                    //
+                    // If the user is a "brand new" user, then create a new "user" in your own database.
+                    // Assign this user with the name and email provided.
+                    // Before this works, you must enable "Firestore" from the firebase console.
+                    // The Firestore rules must allow the user to write. 
+                    //------------------------------------------------------------------------------------------
+                    var user = authResult.user;
+                    if (authResult.additionalUserInfo.isNewUser) {         //if new user
+                        db.collection("userstwo").doc(user.uid).set({         //write to firestore
+                                name: user.displayName,                    //"users" collection
+                                email: user.email                          //with authenticated user's ID (user.uid)
+                            }).then(function () {
+                                console.log("New user added to firestore");
+                                window.location.assign("swipe • collection.html");       //re-direct to main.html after signup
+                            })
+                            .catch(function (error) {
+                                console.log("Error adding new user: " + error);
+                            });
+                    } else {
+                        return true;
+                    }
+                    return false;
+                },
           uiShown: function () {
             // The widget is rendered.
             // Hide the loader.
