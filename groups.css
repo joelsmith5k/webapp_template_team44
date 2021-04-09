@@ -6,6 +6,7 @@
     margin: auto;
     color: #333333;
     text-align: center;
+    width: 90%;
 }
 
 .matchingButton{
@@ -25,4 +26,11 @@
 #createGroupDiv{
     background-color: lightslategrey;
     display: block;
+}
+
+.container{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
 }
