@@ -1,47 +1,29 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>User Groups</title>
-    <meta name="comp1800 boilerplate code" content="my bcit project" />
-    <meta name="author" content="BCIT" />
+  <html>
+    <head>
+      <meta charset="utf-8" />
+      <title>Groups</title>
+      <meta name="comp1800 boilerplate code" content="my bcit project" />
+      <meta name="author" content="BCIT" />
 
-    <!-- Bootstrap for Mobile-first, and JQuery -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-      crossorigin="anonymous"
-    />
-
-    <!-- Optional styles and scripts of your own -->
-    <style>
-      #topDescription{
-        border:1px solid grey; 
-        background-color: lightgray; 
-        border-radius: 5px; 
-        margin: auto;
-        color: #333333;
-        text-align: center;
-      }
-
-      .matchingButton{
-        color:whitesmoke;
-        background-color: #333333;
-      }
-
-      .groupBox{
-        background-color: lightgray;
-      }
-
-      .topMessage{
-        padding: 1%;
-      }
-    </style>
+      <!-- Bootstrap for Mobile-first, and JQuery -->
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+        crossorigin="anonymous"
+      />
+      <link
+        type="text/css"
+        rel="stylesheet"
+        href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css"
+      />
+      <!-- Optional styles and scripts of your own -->
+      <link rel="stylesheet" href="groups.css">
   </head>
 
   <body style="background-color: #333333;">
@@ -82,134 +64,147 @@
     </nav>
     <p></p>
     <div class="container" id = "topDescription">
-      <h1 class="h4 topMessage">Choose one of your existing groups to match with:</h1>
+      <h1 class="h4 topMessage">Choose a group to compare your preferences with:</h1>
     </div>
+
     <div>
         <p></p>
     </div>
-    <div class="container">
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-        <div class="col">
+
+    <div id = firstGroupCardDiv>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
             <div class="card groupBox">
               <img src="./images/empty_cinema.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
+                <div class="card-body">
                 <h5 class="card-title">The Boys</h5>
                 <p class="card-text">
                   This is a brief description of the users "The Boys" group. Maybe there are some inside jokes here!
                 </p>
-                <button type="button" class="btn matchingButton">Start Matching</button>
-              </div>
+              <button type="button" class="btn matchingButton">Start Matching</button>
             </div>
-          </div>
-      <div class="col">
-        <div class="card groupBox">
-          <img src="./images/projector.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Horror Fan Friends</h5>
-            <p class="card-text">
-                This is a brief description of the users "Horror Fan Friends" group!
-                Maybe they include some spooky film quotes here.
-            </p>
-            <button type="button" class="btn matchingButton">Start Matching</button>
-          </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card groupBox">
-          <img src="./images/full_cinema.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">~ Housemates ~</h5>
-            <p class="card-text">
-              This is a brief description of the users "Housemates" group. Maybe there are some inside jokes here!
-            </p>
-            <button type="button" class="btn matchingButton">Start Matching</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card groupBox">
-          <img src="./images/empty_cinema.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Comedy Lovers</h5>
-            <p class="card-text">
-              This is a brief description of the users "Comedy Lovers" group. Maybe there  is a funny quote here.
-            </p>
-            <button type="button" class="btn matchingButton">Start Matching</button>
-          </div>
-        </div>
-      </div>
     </div>
-    <div class="container">
-        <h1 class="display-6"></h1>
-      </div>
-      <div>
-          <p></p>
-      </div>
-      <div class="container">
-      <div class="row row-cols-1 row-cols-md-2 g-4">
-          <div class="col">
-              <div class="card groupBox">
-                <img src="./images/friend_group.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Highschool Friends</h5>
-                  <p class="card-text">
-                    This is a brief description for the user's "Highschool Friends" group - 
-                    this must be a great way to stay in touch.
-                  </p>
-                  <button type="button" class="btn matchingButton">Start Matching</button>
-                </div>
-              </div>
-            </div>
-        <div class="col">
-          <div class="card groupBox">
-            <img src="./images/projector.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Documentary Squad</h5>
-              <p class="card-text">
-                  This is a brief description of the users "Documentary Squad" group! It could include 
-                  some information about the group members.  
-              </p>
-              <button type="button" class="btn matchingButton">Start Matching</button>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card groupBox">
-            <img src="./images/projector.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">A Slightly Older Group</h5>
-              <p class="card-text">
-                This is a group the user hasn't used in a while - they will be sorted 
-                    based on recency of use.
-              </p>
-              <button type="button" class="btn matchingButton">Start Matching</button>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card groupBox">
-            <img src="./images/full_cinema.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Family :)</h5>
-              <p class="card-text">
-                This is a brief description of the users "Family" group. Maybe there is a favourite movie quote here..
-              </p>
-              <button type="button" class="btn matchingButton">Start Matching</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    <!----------------------------------------------->
-    <!-- JS: Boostrap, Firebase, API related    -->
-    <!----------------------------------------------->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-      crossorigin="anonymous"
-    ></script>
+    <div id = "groupCardDiv">
 
-    <!--------------------------------------------------------------------->
-    <!-- JS files: Your own JavaScript functions included here    -->
-    <!--------------------------------------------------------------------->
-  </body>
+    </div>
+      <!----------------------------------------------->
+      <!-- JS: Boostrap, Firebase, API related    -->
+      <!----------------------------------------------->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"
+      ></script>
+      <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+      <!-- Link to the api keys for your firebase project -->
+      <script src="scripts/firebase_api_joel.js"></script>
+
+      <!--------------------------------------------------------------------->
+      <!-- JS files: Your own JavaScript functions included here    -->
+      <!--------------------------------------------------------------------->
+      <script>
+        function displayGroups(){
+          db.collection("groups")
+          .get()
+          .then(function(snap){
+          snap.forEach(function(doc){
+
+          // console.log(snap)
+          
+          console.log("Getting name and desc for each group..")
+
+          var groupName = doc.data().name;
+          var groupDescription = doc.data().description;
+
+          var groupContainer = document.createElement('div');
+          groupContainer.setAttribute('class', "container");
+
+          var groupGrid = document.createElement('div');
+          groupGrid.setAttribute('class', "row row-cols-1 row-cols-md-2 g-4");
+
+          var groupCol = document.createElement('div');
+          groupCol.setAttribute('class', "col");
+
+          var groupBox = document.createElement('div');
+          groupBox.setAttribute('class', "card groupBox");
+
+          var groupImage = document.createElement('img');
+          var groupImageSource = "./images/empty_cinema.jpg"
+          groupImage.setAttribute('src', groupImageSource);
+          groupImage.setAttribute('class', "card-img-top");
+
+          var groupBody = document.createElement('div');
+          groupBody.setAttribute('class', "card-body");
+          
+          var groupTitle = document.createElement('h5');
+          groupTitle.setAttribute('class', "card-title");
+          groupTitle.appendChild(document.createTextNode(groupName));
+
+          var groupText = document.createElement('p');
+          groupText.setAttribute('class', "card-text");
+
+          var groupSelect = document.createElement('button');
+          groupSelect.setAttribute('class', "btn matchingButton");
+          groupSelect.setAttribute('type', "button");
+          groupSelect.appendChild(document.createTextNode("Start Matching!"));
+
+          groupBody.appendChild(groupTitle)
+          groupBody.appendChild(groupText)
+          groupBody.appendChild(groupSelect)
+
+          groupBox.appendChild(groupImage)
+          groupBox.appendChild(groupBody)
+
+          groupCol.appendChild(groupBox)
+
+          groupGrid.appendChild(groupCol)
+
+          groupContainer.appendChild(groupGrid)
+
+          var domDiv = document.getElementById("groupCardDiv")
+          domDiv.appendChild(groupContainer)
+        
+        }) 
+      })
+    }
+      displayGroups();
+      </script>
+    </body>
+  </html>
 </html>
+<!-- function makePage(){
+
+  let artistImage = document.createElement('img');
+  let artistImageSource = 'https://randomuser.me/api/portraits/men/' + artist_num + '.jpg'
+  artistImage.setAttribute('src', artistImageSource);
+  artistImage.setAttribute('id', 'artistImage')
+  let imageParent = document.getElementById('imageBox');
+  imageParent.appendChild(artistImage)
+
+  let artistNameHeader = document.createElement('h1')
+  let artistNameNode = document.createTextNode(artist_name)
+  artistNameHeader.appendChild(artistNameNode)
+  let artistNameParent = document.getElementById('nameBox')
+  artistNameParent.appendChild(artistNameHeader)
+
+  let artistPositionPara = document.createElement('p')
+  let artistPositionNode = document.createTextNode(artist_data[artist_num].title)
+  artistPositionPara.appendChild(artistPositionNode)
+  let artistPositionParent = document.getElementById('infoBox')
+  artistPositionParent.appendChild(artistPositionPara)
+
+  let artistDescriptionPara = document.createElement('p')
+  let artistDescriptionNode = document.createTextNode(artist_data[artist_num].about)
+  artistDescriptionPara.appendChild(artistDescriptionNode)
+  let artistDescriptionParent = document.getElementById('infoBox')
+  artistDescriptionParent.appendChild(artistDescriptionPara)
+
+}
+
+makePage(); -->
