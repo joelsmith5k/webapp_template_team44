@@ -71,24 +71,13 @@
         <p></p>
     </div>
 
-    <div id = firstGroupCardDiv>
-      <div class="container">
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-          <div class="col">
-            <div class="card groupBox">
-              <img src="./images/empty_cinema.jpg" class="card-img-top" alt="..." />
-                <div class="card-body">
-                <h5 class="card-title">The Boys</h5>
-                <p class="card-text">
-                  This is a brief description of the users "The Boys" group. Maybe there are some inside jokes here!
-                </p>
-              <button type="button" class="btn matchingButton">Start Matching</button>
-            </div>
-        </div>
-    </div>
     <div id = "groupCardDiv">
 
     </div>
+
+    <!-- <div id = "createGroupDiv">
+      <button type="button" class="btn btn-secondary btn-lg">Large button</button>
+    </div> -->
       <!----------------------------------------------->
       <!-- JS: Boostrap, Firebase, API related    -->
       <!----------------------------------------------->
@@ -113,14 +102,14 @@
           db.collection("groups")
           .get()
           .then(function(snap){
-          snap.forEach(function(doc){
 
-          // console.log(snap)
-          
-          console.log("Getting name and desc for each group..")
+          var counter = 1
+
+          snap.forEach(function(doc){
 
           var groupName = doc.data().name;
           var groupDescription = doc.data().description;
+          var groupImageChoice = doc.data().photo;
 
           var groupContainer = document.createElement('div');
           groupContainer.setAttribute('class', "container");
@@ -135,19 +124,24 @@
           groupBox.setAttribute('class', "card groupBox");
 
           var groupImage = document.createElement('img');
-          var groupImageSource = "./images/empty_cinema.jpg"
+          var groupImageSource = "./images/"+ groupImageChoice + ".jpg"
           groupImage.setAttribute('src', groupImageSource);
           groupImage.setAttribute('class', "card-img-top");
 
           var groupBody = document.createElement('div');
           groupBody.setAttribute('class', "card-body");
           
+          // Here, we are setting Id for each Title, starting with groupName1, then groupName2, etc..
           var groupTitle = document.createElement('h5');
           groupTitle.setAttribute('class', "card-title");
+          groupTitle.setAttribute('id', "groupName" + counter);
+          counter += 1
+          console.log(groupTitle.id)
           groupTitle.appendChild(document.createTextNode(groupName));
 
           var groupText = document.createElement('p');
           groupText.setAttribute('class', "card-text");
+          groupText.appendChild(document.createTextNode(groupDescription));
 
           var groupSelect = document.createElement('button');
           groupSelect.setAttribute('class', "btn matchingButton");
@@ -170,10 +164,43 @@
           var domDiv = document.getElementById("groupCardDiv")
           domDiv.appendChild(groupContainer)
         
-        }) 
-      })
-    }
-      displayGroups();
+            }) 
+          })
+        }
+        displayGroups();
+
+        function joinAGroup() {
+            
+          // join a group is called with a 2 second delay, which allows the group cards to populate the page.
+          // once the group cards populate, we grab all of the buttons from the cards: 
+            buttons = document.querySelectorAll(".btn.matchingButton")
+            console.log(buttons)
+          
+          // once we have a reference to the matching buttons, we loop through and give them an id of "matchButton1", "matchButton1", ...
+            for (i = 0; i < buttons.length; i++) {
+                buttons[i].setAttribute("id", "matchButton" + (i + 1))
+                console.log(buttons[i].id)
+                      } 
+
+            firebase.auth().onAuthStateChanged(function (user) {
+            db.collection("userstwo").doc(user.uid).get().then(function(doc) {
+
+              console.log(user.uid)
+              console.log(doc.data())
+              console.log(doc.data().name)
+
+              var groupChoice = {"current group": "selected group4.."}
+
+              db.collection("userstwo").doc(user.uid).update(groupChoice).then(() => {
+              console.log("Document successfully written!");
+                  });
+              }); 
+            });
+          }
+        
+        setTimeout(joinAGroup, 2000);
+
+        
       </script>
     </body>
   </html>
