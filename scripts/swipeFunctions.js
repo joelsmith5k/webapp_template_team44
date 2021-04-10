@@ -19,7 +19,6 @@ function displayCurrentUser() {
             console.log(user.uid)
             console.log(doc.data())
             console.log(doc.data().name)
-            
         })
         if (user) {
             currentUser = user
@@ -34,11 +33,17 @@ function displayCurrentUser() {
       });
 }
 
+function returnCurrentUser() {
+    db.collection("userstwo").doc("v2QEmpmdmfXNHrgGUPrxcvd8fPK2")
+    .get().then(function(doc) {
+        console.log("returnCurrentUser")
+        console.log(doc.data().name)
+    })
+}
+
+
 displayCurrentUser()
-
-
-var coolguy = displayCurrentUser()
-console.log("coolguy" + coolguy)
+returnCurrentUser()
 
 
 var displayNextUser = () => {
@@ -91,6 +96,11 @@ var displayNextMovie = () => {
     var movieDirector = movies[movieIndex].data().director;
     var movieYear = movies[movieIndex].data().year;
     var movieDescription = movies[movieIndex].data().description;
+    var movieImageURL = movies[movieIndex].data().image_url;
+
+    console.log("imageURL" + movieImageURL)
+
+    document.getElementById('displayed-movie-image').setAttribute("src", movieImageURL);
 
     document.getElementById('displayed-movie').innerHTML = movieTitle;
     document.getElementById('displayed-movie-small').innerHTML = movieTitle;
