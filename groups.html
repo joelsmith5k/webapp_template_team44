@@ -1,4 +1,3 @@
-<html>
   <html>
     <head>
       <meta charset="utf-8" />
@@ -103,7 +102,8 @@
           .get()
           .then(function(snap){
 
-          var counter = 1
+          var groupCounter = 1
+          var buttonCounter = 1
 
           snap.forEach(function(doc){
 
@@ -134,8 +134,8 @@
           // Here, we are setting Id for each Title, starting with groupName1, then groupName2, etc..
           var groupTitle = document.createElement('h5');
           groupTitle.setAttribute('class', "card-title");
-          groupTitle.setAttribute('id', "groupName" + counter);
-          counter += 1
+          groupTitle.setAttribute('id', "groupName" + groupCounter);
+          groupCounter += 1
           console.log(groupTitle.id)
           groupTitle.appendChild(document.createTextNode(groupName));
 
@@ -146,6 +146,9 @@
           var groupSelect = document.createElement('button');
           groupSelect.setAttribute('class', "btn matchingButton");
           groupSelect.setAttribute('type', "button");
+          groupSelect.setAttribute('id', "startMatching" + buttonCounter);
+          buttonCounter += 1
+          console.log(groupSelect.id)
           groupSelect.appendChild(document.createTextNode("Start Matching!"));
 
           groupBody.appendChild(groupTitle)
@@ -169,69 +172,129 @@
         }
         displayGroups();
 
-        function joinAGroup() {
-            
-          // join a group is called with a 2 second delay, which allows the group cards to populate the page.
-          // once the group cards populate, we grab all of the buttons from the cards: 
-            buttons = document.querySelectorAll(".btn.matchingButton")
-            console.log(buttons)
-          
-          // once we have a reference to the matching buttons, we loop through and give them an id of "matchButton1", "matchButton1", ...
-            for (i = 0; i < buttons.length; i++) {
-                buttons[i].setAttribute("id", "matchButton" + (i + 1))
-                console.log(buttons[i].id)
-                      } 
+// // -----------------------------------------------------------------------------------------------------------------
+        function applyListeners(){
+          let allButtons = document.querySelectorAll(".btn.matchingButton");
+          let allButtonsArray = Array.prototype.slice.call(allButtons);
 
-            firebase.auth().onAuthStateChanged(function (user) {
-            db.collection("userstwo").doc(user.uid).get().then(function(doc) {
+          allButtonsArray.forEach(function(button){
+            var choiceNumber = button.id[button.id.length - 1]
+            button.addEventListener("click", joinTheGroup(choiceNumber))
+          })
+        }
 
-              console.log(user.uid)
-              console.log(doc.data())
-              console.log(doc.data().name)
+        var joinTheGroup = function(choiceNumber){
+          return function curriedFunction(choiceNumber){
 
-              var groupChoice = {"current group": "selected group4.."}
+            firebase.auth().onAuthStateChanged(function(user){
+            db.collection("userstwo").doc(user.uid).get().then(function(doc){
 
-              db.collection("userstwo").doc(user.uid).update(groupChoice).then(() => {
-              console.log("Document successfully written!");
-                  });
-              }); 
-            });
-          }
+              groupTitleInside = document.getElementById("groupName" + choiceNumber.target.id[choiceNumber.target.id.length - 1])
+              var groupNameToAdd = groupTitleInside.innerHTML
+              var objectToAdd = {"current group": groupNameToAdd}
+
+              db.collection("userstwo").doc(user.uid).update(objectToAdd).then(() => {
+                console.log("Document successfully written!")
+              })
+            })
+          })
+        }
+      }
         
-        setTimeout(joinAGroup, 2000);
-
-        
+        setTimeout(applyListeners, 2000);
       </script>
     </body>
   </html>
-</html>
-<!-- function makePage(){
 
-  let artistImage = document.createElement('img');
-  let artistImageSource = 'https://randomuser.me/api/portraits/men/' + artist_num + '.jpg'
-  artistImage.setAttribute('src', artistImageSource);
-  artistImage.setAttribute('id', 'artistImage')
-  let imageParent = document.getElementById('imageBox');
-  imageParent.appendChild(artistImage)
+  <!-- Version that writes a hard-coded string to the new field current group in the db -->
+  <!-- function joinAGroup() {
 
-  let artistNameHeader = document.createElement('h1')
-  let artistNameNode = document.createTextNode(artist_name)
-  artistNameHeader.appendChild(artistNameNode)
-  let artistNameParent = document.getElementById('nameBox')
-  artistNameParent.appendChild(artistNameHeader)
+    firebase.auth().onAuthStateChanged(function (user) {
+    db.collection("userstwo").doc(user.uid).get().then(function(doc) {
 
-  let artistPositionPara = document.createElement('p')
-  let artistPositionNode = document.createTextNode(artist_data[artist_num].title)
-  artistPositionPara.appendChild(artistPositionNode)
-  let artistPositionParent = document.getElementById('infoBox')
-  artistPositionParent.appendChild(artistPositionPara)
+      console.log(user.uid)
+      console.log(doc.data())
+      console.log(doc.data().name)
 
-  let artistDescriptionPara = document.createElement('p')
-  let artistDescriptionNode = document.createTextNode(artist_data[artist_num].about)
-  artistDescriptionPara.appendChild(artistDescriptionNode)
-  let artistDescriptionParent = document.getElementById('infoBox')
-  artistDescriptionParent.appendChild(artistDescriptionPara)
+      var groupChoice = {"current group": "selected group 80!.."}
 
-}
+      db.collection("userstwo").doc(user.uid).update(groupChoice).then(() => {
+      console.log("Document successfully written!");
+          });
+      }); 
+    });
+  } 
 
-makePage(); -->
+setTimeout(joinAGroup, 2000); -->
+
+  <!-- Version trying to add event lister to each button-->
+  <!-- function joinAGroup() {
+
+    firebase.auth().onAuthStateChanged(function (user) {
+    db.collection("userstwo").doc(user.uid).get().then(function(doc) {
+
+      let allButtons = document.querySelectorAll(".btn.matchingButton");
+      let allButtonsArray = Array.prototype.slice.call(allButtons);
+
+      allButtonsArray.forEach(function(button){
+      button.addEventListener("click", function(){
+        
+        groupTitleInside = document.getElementById("groupName" + button[-1])
+        console.log(groupTitleInside)
+      
+        var groupChoice = {"current group": groupTitleInside}
+
+        db.collection("userstwo").doc(user.uid).update(groupChoice).then(() => {
+        console.log("Document successfully written!");
+      });
+
+        console.log(button.id);
+        this.style.backgroundColor = "#ff0";
+
+      });
+    });
+
+      // console.log(user.uid)
+      // console.log(doc.data())
+      // console.log(doc.data().name)
+      }); 
+    });
+  } 
+
+setTimeout(joinAGroup, 2000); -->
+
+<!-- // ----------------  // working right now but can't pass the choice number into the next function, trying another way below. ------------------------
+        // function applyListeners(){
+        //   let allButtons = document.querySelectorAll(".btn.matchingButton");
+        //   let allButtonsArray = Array.prototype.slice.call(allButtons);
+
+        //   console.log(allButtonsArray)
+          
+        //   allButtonsArray.forEach(function(button){
+        //     console.log(button)
+        //     var choiceNumber = button.id[button.id.length - 1]
+        //     button.addEventListener("click", function(choiceNumber){
+        //       console.log(choiceNumber)
+        //       firebase.auth().onAuthStateChanged(function (user) {
+        //       db.collection("userstwo").doc(user.uid).get().then(function(doc) {
+
+        //       // console.log(button.id)
+        //       // someObj.addEventListener("click", some_func.bind(null, some_other_func), false);
+        //       console.log(user.uid)
+        //       console.log(doc.data())
+        //       console.log(doc.data().name)
+
+        //       var groupChoice = {"current group": "selected group 84!.."}
+
+        //       db.collection("userstwo").doc(user.uid).update(groupChoice).then(() => {
+        //       console.log("Document successfully written!");
+        //           });
+        //       }); 
+        //     });
+          
+        //     })
+              
+        //     })
+        // }
+
+        // setTimeout(applyListeners, 2000); -->
