@@ -143,6 +143,12 @@
           groupText.setAttribute('class', "card-text");
           groupText.appendChild(document.createTextNode(groupDescription));
 
+          // linked = document.createElement('a');
+          // let newPage = './artist.html?num=' + artistNumberText + '&name=' + artistNameText
+          // linked.setAttribute('href', newPage);
+          // linked.appendChild(artistCard);
+          // linked.setAttribute('id', 'linkedBox');
+
           var groupSelect = document.createElement('button');
           groupSelect.setAttribute('class', "btn matchingButton");
           groupSelect.setAttribute('type', "button");
@@ -195,13 +201,19 @@
 
               db.collection("userstwo").doc(user.uid).update(objectToAdd).then(() => {
                 console.log("Document successfully written!")
+
+                setTimeout(function () {
+                  window.location.href = "./swipe.html"; // this delay allows it to write to DB before redirect
+                }, 1000);
+
               })
             })
           })
         }
       }
-        
+
         setTimeout(applyListeners, 2000);
+    
       </script>
     </body>
   </html>
