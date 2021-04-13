@@ -33,17 +33,11 @@ function displayCurrentUser() {
       });
 }
 
-function returnCurrentUser() {
-    db.collection("userstwo").doc("v2QEmpmdmfXNHrgGUPrxcvd8fPK2")
-    .get().then(function(doc) {
-        console.log("returnCurrentUser")
-        console.log(doc.data().name)
-    })
-}
+
 
 
 displayCurrentUser()
-returnCurrentUser()
+
 
 
 var displayNextUser = () => {
@@ -109,6 +103,21 @@ var displayNextMovie = () => {
     movieIndex++;
     console.log(movieTitle);
 }
+
+
+var displayGroupTitle = () => {
+    firebase.auth().onAuthStateChanged(function(user) {
+        db.collection("userstwo").doc(user.uid).get().then(function(doc) {
+            console.log(doc.data().current_group)
+            let groupName = doc.data().current_group
+            document.getElementById('displayed-group-title').innerHTML = groupName;
+        })
+      });
+}
+
+displayGroupTitle()
+
+
 
 
 var approveMovie = () => {
