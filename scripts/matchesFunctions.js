@@ -26,16 +26,17 @@ function getMovies() {
 
 getMovies();
 
-// async function syncMovies() {
-//     db.collection("movies")
-//         .get()
-//         .then(function (snap) {
-//             let syncedMovies = snap.docs;
-//             movies = snap.docs;
-//             console.log(movies)
-            
-//         })
-// }
+var displayGroupTitle = () => {
+    firebase.auth().onAuthStateChanged(function(user) {
+        db.collection("userstwo").doc(user.uid).get().then(function(doc) {
+            console.log(doc.data().current_group)
+            let groupName = doc.data().current_group
+            document.getElementById('displayed-group-title').innerHTML = groupName;
+        })
+      });
+}
+
+displayGroupTitle()
 
 
 

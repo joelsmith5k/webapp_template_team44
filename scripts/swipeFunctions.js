@@ -11,6 +11,20 @@ var userIndex = 0;
 yes = document.getElementById("yesButton");
 no = document.getElementById("noButton");
 
+/* ------------------------ Start Swipe Button Functions ------------------------ */
+
+function startSwipe() {
+    var swipeButtons = document.getElementById("bottom_grid")
+    var initialButton = document.getElementById("startButton")
+
+    swipeButtons.style.display = "block";
+    initialButton.style.display = "none";
+    
+    displayMovie();
+    console.log("movieIndex" + movieIndex)
+}
+
+
 /* ------------------------------ User Functions ------------------------------ */
 
 function displayCurrentUser() {
@@ -84,7 +98,7 @@ function readTitle() {
 
 
 
-var displayNextMovie = () => {
+var displayMovie = () => {
     //document.getElementById('yes').addEventListener('click', function () {
     var movieTitle = movies[movieIndex].data().title;
     var movieDirector = movies[movieIndex].data().director;
@@ -100,8 +114,6 @@ var displayNextMovie = () => {
     document.getElementById('displayed-year').innerHTML = movieYear;
     document.getElementById('displayed-description').innerHTML = movieDescription ;
 
-    movieIndex++;
-    console.log(movieTitle);
 }
 
 

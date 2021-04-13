@@ -91,6 +91,10 @@
           background-color: lightgrey;
           border: 1px solid black;
         }
+
+        #bottom_grid {
+          display: none;
+        }
         
 
     </style>
@@ -167,9 +171,10 @@
           <div class="card">
             <img src="./images/bladerunner.jpg" class="card-img-top" id="displayed-movie-image" alt="...">
             <div class="card-body">
-              <h3 id="displayed-movie-small">TITLE</h3>
-              <h4 id="displayed-director">DIRECTOR</h4>
-              <h4 id="displayed-year">YEAR</h4>
+              <h3 id="displayed-movie-small">Welcome to Cineder :)</h3>
+              <button class="btn btn-warning" id="startButton" onclick="startSwipe()">Click here to start swiping!</button>
+              <h4 id="displayed-director"></h4>
+              <h4 id="displayed-year"></h4>
               <p class="card-text"><small class="text-muted" id="displayed-description"></small></p>
             </div>
           </div>
@@ -181,10 +186,10 @@
     <div class="container" id="bottom_grid">
       <div class="row">
         <div class="col-sm" id="nowatch">
-          <button type="button" class="btn btn-danger" id="noButton">I don't want to watch this...</button>
+          <button type="button" class="btn btn-danger" class="swipebutton" id="noButton">I don't want to watch this...</button>
         </div>
         <div class="col-sm" id="yeswatch">
-          <button type="button" class="btn btn-success" id="yesButton">I want to watch this!</button>
+          <button type="button" class="btn btn-success" class="swipebutton" id="yesButton">I want to watch this!</button>
         </div>
       </div>
     </div>
