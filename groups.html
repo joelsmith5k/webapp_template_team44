@@ -202,11 +202,10 @@
               db.collection("userstwo").doc(user.uid).update(objectToAdd).then(() => {
                 console.log("Document successfully written!")
 
-                setTimeout(function () {
-                  window.location.href = "./swipe.html"; // this delay allows it to write to DB before redirect
-                }, 1000);
-
               })
+              setTimeout(function () {
+                  window.location.href = "./swipe • collection.html"; // this delay allows it to write to DB before redirect
+                }, 2000);
             })
           })
         }
