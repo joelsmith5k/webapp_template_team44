@@ -197,7 +197,7 @@
 
               groupTitleInside = document.getElementById("groupName" + choiceNumber.target.id[choiceNumber.target.id.length - 1])
               var groupNameToAdd = groupTitleInside.innerHTML
-              var objectToAdd = {"current group": groupNameToAdd}
+              var objectToAdd = {"current_group": groupNameToAdd}
 
               db.collection("userstwo").doc(user.uid).update(objectToAdd).then(() => {
                 console.log("Document successfully written!")
