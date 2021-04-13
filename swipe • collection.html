@@ -40,7 +40,8 @@
             height: fit-content;
             text-align: center;
             border: 1px solid black;
-            background-color: whitesmoke;
+            padding-top: 10px;
+            background-color: #333;
         }
 
         #body_container img {
@@ -78,16 +79,15 @@
 
         .container {
             background-color: lightgrey;
-
-
         }
         
         body {
           background-color: #333;
         }
 
-        #active_page {
-          background-color: gold;
+        .card {
+          background-color: lightgrey;
+          border: 1px solid black;
         }
         
 
@@ -122,12 +122,10 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
-                  >Swipe</a
-                >
+                <a class="nav-link active" aria-current="page" href="#">Swipe</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">User Profile</a>
+                <a class="nav-link" href="./matches.html">Matches</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Groups</a>
@@ -145,10 +143,10 @@
         </div>
       </div>
 
-      <div class="container" id="top_grid">
+      <!-- <div class="container" id="top_grid">
         <div class="row">
           <div class="col-sm">
-            <button type="button" class="btn btn-dark">Group Settings</button>
+            <button type="button" class="btn btn-dark">Groups</button>
           </div>
           <div class="col-sm" id="active_page">
             <button type="button" class="btn btn-dark">Swipe</button>
@@ -157,17 +155,15 @@
             <button type="button" class="btn btn-dark" id="swipeToMatchesButton">Matches</button>
           </div>
         </div>
-      </div>
+      </div> -->
 
   
     <div class="container" id="body_container">
-        <h1><span id="displayed-movie"></span></h1>
+        <!-- <h1><span id="displayed-movie"></span></h1> -->
 
         <div class="card-group">
           <div class="card">
             <img src="./images/bladerunner.jpg" class="card-img-top" id="displayed-movie-image" alt="...">
-
-
             <div class="card-body">
               <h3 id="displayed-movie-small">TITLE</h3>
               <h4 id="displayed-director">DIRECTOR</h4>
