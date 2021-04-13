@@ -20,7 +20,21 @@ function startSwipe() {
     swipeButtons.style.display = "block";
     initialButton.style.display = "none";
     
-    displayMovie();
+    firebase.auth().onAuthStateChanged(function(user) {
+        db.collection("userstwo").doc(user.uid).get().then(function(doc) {
+            
+            if (doc.data().last_swipe_index == undefined) {
+                movieIndex = 0
+            } else {
+                movieIndex = doc.data().last_swipe_index
+            }
+            
+            displayMovie();
+        })
+    });
+
+
+    
     console.log("movieIndex" + movieIndex)
 }
 
@@ -100,19 +114,28 @@ function readTitle() {
 
 var displayMovie = () => {
     //document.getElementById('yes').addEventListener('click', function () {
-    var movieTitle = movies[movieIndex].data().title;
-    var movieDirector = movies[movieIndex].data().director;
-    var movieYear = movies[movieIndex].data().year;
-    var movieDescription = movies[movieIndex].data().description;
-    var movieImageURL = movies[movieIndex].data().image_url;
+    
+        if (movieIndex < movies.length) {
+            var movieTitle = movies[movieIndex].data().title;
+            var movieDirector = movies[movieIndex].data().director;
+            var movieYear = movies[movieIndex].data().year;
+            var movieDescription = movies[movieIndex].data().description;
+            var movieImageURL = movies[movieIndex].data().image_url;
+        } else {
+            var movieTitle = ""
+            var movieDirector = "You've gone through all the movies!"
+            var movieYear = "Why don't you go see your group's matches?"
+            var movieDescription = "Here's a photo of a dog if you want to just chill..."
+            var movieImageURL = "https://firebasestorage.googleapis.com/v0/b/cineder-3be64.appspot.com/o/movie_posters%2Fnomoremovies.png?alt=media&token=0adb5278-6d72-42c1-83cf-855e932b8eae"
+        }
 
-    document.getElementById('displayed-movie-image').setAttribute("src", movieImageURL);
+        document.getElementById('displayed-movie-image').setAttribute("src", movieImageURL);
 
-    // document.getElementById('displayed-movie').innerHTML = movieTitle;
-    document.getElementById('displayed-movie-small').innerHTML = movieTitle;
-    document.getElementById('displayed-director').innerHTML = movieDirector;
-    document.getElementById('displayed-year').innerHTML = movieYear;
-    document.getElementById('displayed-description').innerHTML = movieDescription ;
+        // document.getElementById('displayed-movie').innerHTML = movieTitle;
+        document.getElementById('displayed-movie-small').innerHTML = movieTitle;
+        document.getElementById('displayed-director').innerHTML = movieDirector;
+        document.getElementById('displayed-year').innerHTML = movieYear;
+        document.getElementById('displayed-description').innerHTML = movieDescription ;
 
 }
 
@@ -134,8 +157,6 @@ displayGroupTitle()
 
 var approveMovie = () => {
     //document.getElementById('yes').addEventListener('click', function () {
-    
-    console.log("works.")
 
     movieIndex++;
 
@@ -159,12 +180,11 @@ var approveMovie = () => {
                 var movieTitle = movies[movieIndex - 1].data().title;
                 
                 currentUser.update({
-                    desired_movies: firebase.firestore.FieldValue.arrayUnion(movieTitle)
+                    desired_movies: firebase.firestore.FieldValue.arrayUnion(movieTitle),
+                    last_swipe_index: movieIndex
                 })
             })
         })
-
-        
 
     } else if (movieIndex = movies.length) {
         var movieTitle = ""
@@ -181,7 +201,8 @@ var approveMovie = () => {
                 var movieToAdd = movies[movieIndex - 1].data().title;
                 
                 currentUser.update({
-                    desired_movies: firebase.firestore.FieldValue.arrayUnion(movieToAdd)
+                    desired_movies: firebase.firestore.FieldValue.arrayUnion(movieToAdd),
+                    last_swipe_index: movieIndex
                 })
             })
         })
@@ -196,7 +217,6 @@ var approveMovie = () => {
 
     document.getElementById('displayed-movie-image').setAttribute("src", movieImageURL);
 
-    // document.getElementById('displayed-movie').innerHTML = movieTitle;
     document.getElementById('displayed-movie-small').innerHTML = movieTitle;
     document.getElementById('displayed-director').innerHTML = movieDirector;
     document.getElementById('displayed-year').innerHTML = movieYear;
@@ -214,6 +234,18 @@ var disapproveMovie = () => {
         var movieYear = movies[movieIndex].data().year;
         var movieDescription = movies[movieIndex].data().description;
         var movieImageURL = movies[movieIndex].data().image_url;
+
+        firebase.auth().onAuthStateChanged(function (user) {
+            db.collection("userstwo").doc(user.uid).get().then(function (doc) {                
+                
+                var currentUser = db.collection("userstwo").doc(user.uid)
+                
+                currentUser.update({
+                    last_swipe_index: movieIndex
+                })
+            })
+        })
+
     } else {
         var movieTitle = ""
         var movieDirector = "You've gone through all the movies!"
