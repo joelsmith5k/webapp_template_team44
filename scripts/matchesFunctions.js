@@ -13,18 +13,100 @@ var movieIndex = 0;
 
 /* ------------------------------ Movie Display Functions ------------------------------ */
 
-function getMovies() {
+// Find the current users group name, pass this information to findAllUsers function
+function runMatchesPage(){
+
+    firebase.auth().onAuthStateChanged(function (user) {
+
+    var docRef = db.collection("userstwo").doc(user.uid);
+
+    docRef.get().then((doc) => {
+
+        console.log("Document data:", doc.data());
+        currentGroup = doc.data().current_group;
+        // console.log(currentGroup)
+        findAllUsers(currentGroup)
+        })
+    })
+}
+
+
+// Find all users that are in the same group, create a list, containing lists of their desired movies. 
+// Pass this master list to sortAndMatch
+function findAllUsers(currentGroup){
+
+    db.collection("userstwo").where("current_group", "==", currentGroup)
+    .get()
+    .then((querySnapshot) => {
+
+        var allMoviesList = []
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            // console.log(doc.id, " => ", doc.data());
+            allMoviesList.push(doc.data().desired_movies)
+            // console.log(trial_list)     
+        });
+
+        sortAndMatch(allMoviesList)
+    })
+}
+
+// Combine the list of lists into one large list containing every single element
+function sortAndMatch(allMoviesList){
+
+    var combinedMovies = [];
+
+    for (var i = 0; i < allMoviesList.length; i++) {
+        var theList = allMoviesList[i];
+        for (var j = 0; j < theList.length; j++) {
+            combinedMovies.push(theList[j]);
+        }
+    }
+
+// Create the object that includes each movie and it's count, no duplicates
+    var countedMovies = {};
+
+    combinedMovies.forEach(function(movie) {
+
+        if (countedMovies.hasOwnProperty(movie)) {countedMovies[movie]++} 
+
+        else {countedMovies[movie] = 1}
+
+    });
+
+// maybe pass this object to one final function that creates and displays the DOM's?
+    console.log(countedMovies);
+    getMovies(countedMovies) 
+
+}
+
+
+    runMatchesPage();
+
+// ------------------------------ Joel's Code Above--------------------------------------
+// Yo Marti this is what I did:
+// 1. copied my JS functions from scratch.html to ^^
+// 2. Commented out your call to getMovies(); in line 108
+// 3. Called getMovies from my last function in line 79, passed it the dictionary (countedMovies)
+// 4. added if statement in line 101.. for each movie in the database, if the dictionary ^^ has that key, it passes it to addMatchesPage()
+// 5. Did not alter addMatchesPage() at all
+//  Test it out with a few diff groups and see if it works for you too. Will have to add in some sort of rank?
+
+function getMovies(countedMovies) {
     db.collection("movies")
         .get()
         .then(function (snap) {
+            // console.log(countedMovies)
             movies = snap.docs;
             snap.forEach(element => {
-                addMatchesToPage(element)
+                if (countedMovies.hasOwnProperty(element.data().title)) {
+                    addMatchesToPage(element)
+                }
             });
         })
 }
 
-getMovies();
+// getMovies();
 
 var displayGroupTitle = () => {
     firebase.auth().onAuthStateChanged(function(user) {
