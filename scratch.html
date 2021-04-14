@@ -98,24 +98,75 @@
       <!--------------------------------------------------------------------->
 
       <script>
+        
+        // Find the current users group name, pass this information to findAllUsers function
+        function runMatchesPage(){
 
-            function getCurrentGroup(){
             firebase.auth().onAuthStateChanged(function (user) {
 
             var docRef = db.collection("userstwo").doc(user.uid);
 
             docRef.get().then((doc) => {
+
                 console.log("Document data:", doc.data());
-            
-            }).catch((error) => {
-                console.log("Error getting document:", error);
-            });
-
+                currentGroup = doc.data().current_group;
+                // console.log(currentGroup)
+                findAllUsers(currentGroup)
+                })
             })
-
         }
 
-            getCurrentGroup();
+        
+        // Find all users that are in the same group, create a list, containing lists of their desired movies. 
+        // Pass this master list to sortAndMatch
+        function findAllUsers(currentGroup){
+
+            db.collection("userstwo").where("current_group", "==", currentGroup)
+            .get()
+            .then((querySnapshot) => {
+
+                var allMoviesList = []
+                querySnapshot.forEach((doc) => {
+                    // doc.data() is never undefined for query doc snapshots
+                    // console.log(doc.id, " => ", doc.data());
+                    allMoviesList.push(doc.data().desired_movies)
+                    // console.log(trial_list)     
+                });
+
+                sortAndMatch(allMoviesList)
+            })
+        }
+
+        // Combine the list of lists into one large list containing every single element
+        function sortAndMatch(allMoviesList){
+
+            var combinedMovies = [];
+
+            for (var i = 0; i < allMoviesList.length; i++) {
+                var theList = allMoviesList[i];
+                for (var j = 0; j < theList.length; j++) {
+                    combinedMovies.push(theList[j]);
+                }
+            }
+
+        // Create the object that includes each movie and it's count, no duplicates
+            var countedMovies = {};
+
+            combinedMovies.forEach(function(movie) {
+
+                if (countedMovies.hasOwnProperty(movie)) {countedMovies[movie]++} 
+
+                else {countedMovies[movie] = 1}
+
+            });
+
+        // maybe pass this object to one final function that creates and displays the DOM's?
+            console.log(countedMovies); 
+    
+        }
+
+
+            runMatchesPage();
 
     </script>
     </body>
