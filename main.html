@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     
 
@@ -29,11 +30,18 @@
             font-size: 30px;
         }
         
+        img {
+          width: 200px;
+          height: 300px;
+          object-fit: contain;
+        }
+
         #body_container {
             height: fit-content;
             text-align: center;
             border: 1px solid black;
-            background-color: whitesmoke;
+            padding-top: 10px;
+            background-color: #333;
         }
 
         #body_container img {
@@ -58,10 +66,12 @@
 
         #nowatch {
             background-color: lightcoral;
+            width: 50%;
         }
 
         #yeswatch {
             background-color: lightgreen;
+            width: 50%;
         }
         
         .col-sm {
@@ -71,17 +81,19 @@
 
         .container {
             background-color: lightgrey;
-            text-align: center;
-
-
         }
         
         body {
           background-color: #333;
         }
 
-        #firebaseui-auth-container {
-          padding-bottom: 10%;
+        .card {
+          background-color: lightgrey;
+          border: 1px solid black;
+        }
+
+        #bottom_grid {
+          display: none;
         }
         
 
@@ -95,22 +107,82 @@
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
 
+    
 
   
-    
-      <div class="container">
-        <h1 class="display-4">Welcome to Cinéder!</h1>
-        <h1 class="display-4">Let's get you signed in :)</h1>
-        <br></br>
-        <div id="firebaseui-auth-container"></div>
-        <div id="loader">Loading...</div>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Cineder</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="./swipe • collection.html">Swipe</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./matches.html">Matches</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="./groups.html">Groups</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+      <div class="container" id="group_title">
+        <div class="row">
+          <div class="col-sm">
+            <h1 class="display-6" id="displayed-group-title"><b></b></h1>
+          </div>
+        </div>
       </div>
+
+      <!-- <div class="container" id="top_grid">
+        <div class="row">
+          <div class="col-sm">
+            <button type="button" class="btn btn-dark">Groups</button>
+          </div>
+          <div class="col-sm" id="active_page">
+            <button type="button" class="btn btn-dark">Swipe</button>
+          </div>
+          <div class="col-sm">
+            <button type="button" class="btn btn-dark" id="swipeToMatchesButton">Matches</button>
+          </div>
+        </div>
+      </div> -->
+
   
+    <div class="container" id="body_container">
+        <!-- <h1><span id="displayed-movie"></span></h1> -->
+
+        <div class="card-group">
+          <div class="card">
+            <img src="https://firebasestorage.googleapis.com/v0/b/cineder-3be64.appspot.com/o/cineder_logos%2FCINEDERLOGO.png?alt=media&token=760463d5-9d4f-4a20-8e19-a29c3427dbe6" class="card-img-top" id="displayed-movie-image" alt="...">
+            <div class="card-body">
+              <h3 id="displayed-movie-small">Welcome to Cineder :)</h3>
+              <button class="btn btn-warning" id="startButton" onclick="startSwipe()">Looks like you need a group!</button>
+              <h4 id="displayed-director"></h4>
+              <h4 id="displayed-year"></h4>
+              <p class="card-text"><small class="text-muted" id="displayed-description"></small></p>
+            </div>
+          </div>
+        </div>
+    </div>
+
 
     
-
-
-
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
     <!----------------------------------------------->
@@ -138,7 +210,7 @@
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
 
-    <script src="scripts/swipeLoginFunctions.js"></script>
+    <script src="scripts/mainFunctions.js"></script>
 
 </body>
 

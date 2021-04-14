@@ -246,6 +246,27 @@ var disapproveMovie = () => {
             })
         })
 
+    } else if (movieIndex = movies.length) {
+        var movieTitle = ""
+        var movieDirector = "You've gone through all the movies!"
+        var movieYear = "Why don't you go see your group's matches?"
+        var movieDescription = "Here's a photo of a dog if you want to just chill..."
+        var movieImageURL = "https://firebasestorage.googleapis.com/v0/b/cineder-3be64.appspot.com/o/movie_posters%2Fnomoremovies.png?alt=media&token=0adb5278-6d72-42c1-83cf-855e932b8eae"
+        
+        firebase.auth().onAuthStateChanged(function (user) {
+            db.collection("userstwo").doc(user.uid).get().then(function (doc) {
+    
+                var currentUser = db.collection("userstwo").doc(user.uid)
+
+                var movieToAdd = movies[movieIndex - 1].data().title;
+                
+                currentUser.update({
+                    desired_movies: firebase.firestore.FieldValue.arrayUnion(movieToAdd),
+                    last_swipe_index: movieIndex
+                })
+            })
+        })
+
     } else {
         var movieTitle = ""
         var movieDirector = "You've gone through all the movies!"
