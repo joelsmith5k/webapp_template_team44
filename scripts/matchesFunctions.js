@@ -164,6 +164,7 @@ function getMoviesTwo(sortedMovies, total_users) {
                 }
             }
 
+            // OLD FOR LOOP, NOT ORDERED BY VALUE
             // snap.forEach(element => {
             //     if (sortedMovies.hasOwnProperty(element.data().title)) {
             //         let totalLikes = sortedMovies[element.data().title];
