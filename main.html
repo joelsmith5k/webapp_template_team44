@@ -31,7 +31,7 @@
         }
         
         img {
-          width: 200px;
+          width: 300px;
           height: 300px;
           object-fit: contain;
         }
@@ -42,45 +42,22 @@
             border: 1px solid black;
             padding-top: 10px;
             background-color: #333;
+            color: white;
         }
 
         #body_container img {
             margin-top: 10px;
         }
 
-        #top_grid {
-            text-align: center;
-            border: 1px solid black;
-        }
 
-        #group_title {
-            text-align: center;
-            border: 1px solid black;
-            margin-top: 10px;
-        }
-
-        #bottom_grid {
-            text-align: center;
-            border: 1px solid black;
-        }
-
-        #nowatch {
-            background-color: lightcoral;
-            width: 50%;
-        }
-
-        #yeswatch {
-            background-color: lightgreen;
-            width: 50%;
-        }
-        
-        .col-sm {
-            padding: 20px;
-            border: 1px solid black;
-        }
+       #startButton {
+           background-color: #333;
+           color: gold;
+           margin-top: 10%;
+       }
 
         .container {
-            background-color: lightgrey;
+            background-color: #333;
         }
         
         body {
@@ -88,13 +65,11 @@
         }
 
         .card {
-          background-color: lightgrey;
+          background-color: #333;
           border: 1px solid black;
         }
 
-        #bottom_grid {
-          display: none;
-        }
+    
         
 
     </style>
@@ -141,13 +116,6 @@
         </div>
     </nav>
 
-      <div class="container" id="group_title">
-        <div class="row">
-          <div class="col-sm">
-            <h1 class="display-6" id="displayed-group-title"><b></b></h1>
-          </div>
-        </div>
-      </div>
 
       <!-- <div class="container" id="top_grid">
         <div class="row">
@@ -169,9 +137,9 @@
 
         <div class="card-group">
           <div class="card">
-            <img src="https://firebasestorage.googleapis.com/v0/b/cineder-3be64.appspot.com/o/cineder_logos%2FCINEDERLOGO.png?alt=media&token=760463d5-9d4f-4a20-8e19-a29c3427dbe6" class="card-img-top" id="displayed-movie-image" alt="...">
+            <img src="https://firebasestorage.googleapis.com/v0/b/cineder-3be64.appspot.com/o/cineder_logos%2FCINEDERLOGO_gold.png?alt=media&token=0922423b-3168-4f55-bfb8-a89afad027fe" class="card-img-top" id="displayed-movie-image" alt="...">
             <div class="card-body">
-              <h3 id="displayed-movie-small">Welcome to Cineder :)</h3>
+              <h3 id="displayed-movie-small">Welcome to Cineder</h3>
               <button class="btn btn-warning" id="startButton" onclick="startSwipe()">Looks like you need a group!</button>
               <h4 id="displayed-director"></h4>
               <h4 id="displayed-year"></h4>
