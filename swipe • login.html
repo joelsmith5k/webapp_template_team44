@@ -71,6 +71,7 @@
 
         .container {
             background-color: lightgrey;
+            text-align: center;
 
 
         }
@@ -79,8 +80,8 @@
           background-color: #333;
         }
 
-        #active_page {
-          background-color: gold;
+        #firebaseui-auth-container {
+          padding-bottom: 10%;
         }
         
 
@@ -94,65 +95,13 @@
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
 
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Cineder</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
-                  >Swipe</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">User Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Groups</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-    </nav>
-
-      <div class="container" id="group_title">
-        <div class="row">
-          <div class="col-sm">
-            <h1 class="display-6"><b>THE BOYS</b></h1>
-          </div>
-        </div>
-      </div>
-
-      <div class="container" id="top_grid">
-        <div class="row">
-          <div class="col-sm">
-            <button type="button" class="btn btn-dark">Group Settings</button>
-          </div>
-          <div class="col-sm" id="active_page">
-            <button type="button" class="btn btn-dark">Swipe</button>
-          </div>
-          <div class="col-sm">
-            <button type="button" class="btn btn-dark">Matches</button>
-          </div>
-        </div>
-      </div>
 
   
     
       <div class="container">
-        <h1 class="display-4">Bless you, and welcome to CINEDER!</h1>
-        <h1 class="display-4">Let's get you logged in!</h1>
+        <h1 class="display-4">Welcome to Cinéder!</h1>
+        <h1 class="display-4">Let's get you signed in :)</h1>
+        <br></br>
         <div id="firebaseui-auth-container"></div>
         <div id="loader">Loading...</div>
       </div>

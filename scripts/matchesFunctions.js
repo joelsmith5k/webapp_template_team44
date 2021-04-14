@@ -280,7 +280,7 @@ function addMatchesToPage(movieVariable, percentLikes) {
     matchedDirector.appendChild(textDirector)
 
     var matchPercentage = document.createElement("h5")
-    var stringPercent = percentLikes * 100
+    var stringPercent = Math.trunc(percentLikes * 100) 
     var textMatch = document.createTextNode(stringPercent + "% Match")
     matchPercentage.appendChild(textMatch)
 
