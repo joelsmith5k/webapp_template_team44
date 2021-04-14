@@ -3,10 +3,28 @@
     width: 80%;
     margin: auto;
     margin-top: 10%;
-    background-color: lightslategrey;
-    border: 1px solid black;
+    color: #ffd700;
+    background-color: #0E0F0f;
+    border: 1px solid #ffd700;
     border-radius: 5px;
     padding: 5%;
     text-align: center;
 }
 
+#createGroup{
+    background-color: #0E0F0f;
+    border: 1px solid #ffd700;
+    color: #ffd700;
+}
+
+#groupPhoto{
+    background-color: lightgray;
+}
+
+#groupName{
+    background-color: lightgray;
+}
+
+#groupDescription{
+    background-color: lightgray;
+}
