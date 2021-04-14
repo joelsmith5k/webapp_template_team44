@@ -73,6 +73,9 @@
     <div id = "groupCardDiv">
 
     </div>
+    <div id = "createButtonDiv">
+      <button href="groups.html" type="button" class="btn btn-secondary" id="createGroup">Create Group!</button>
+    </div>
 
     <!-- <div id = "createGroupDiv">
       <button type="button" class="btn btn-secondary btn-lg">Large button</button>
@@ -213,99 +216,10 @@
 
         setTimeout(applyListeners, 2000);
     
+
+        document.getElementById(id = "matchesToSwipeButton").onclick = function () {
+        location.href = "./swipe • collection.html";
+        };
       </script>
     </body>
   </html>
-
-  <!-- Version that writes a hard-coded string to the new field current group in the db -->
-  <!-- function joinAGroup() {
-
-    firebase.auth().onAuthStateChanged(function (user) {
-    db.collection("userstwo").doc(user.uid).get().then(function(doc) {
-
-      console.log(user.uid)
-      console.log(doc.data())
-      console.log(doc.data().name)
-
-      var groupChoice = {"current group": "selected group 80!.."}
-
-      db.collection("userstwo").doc(user.uid).update(groupChoice).then(() => {
-      console.log("Document successfully written!");
-          });
-      }); 
-    });
-  } 
-
-setTimeout(joinAGroup, 2000); -->
-
-  <!-- Version trying to add event lister to each button-->
-  <!-- function joinAGroup() {
-
-    firebase.auth().onAuthStateChanged(function (user) {
-    db.collection("userstwo").doc(user.uid).get().then(function(doc) {
-
-      let allButtons = document.querySelectorAll(".btn.matchingButton");
-      let allButtonsArray = Array.prototype.slice.call(allButtons);
-
-      allButtonsArray.forEach(function(button){
-      button.addEventListener("click", function(){
-        
-        groupTitleInside = document.getElementById("groupName" + button[-1])
-        console.log(groupTitleInside)
-      
-        var groupChoice = {"current group": groupTitleInside}
-
-        db.collection("userstwo").doc(user.uid).update(groupChoice).then(() => {
-        console.log("Document successfully written!");
-      });
-
-        console.log(button.id);
-        this.style.backgroundColor = "#ff0";
-
-      });
-    });
-
-      // console.log(user.uid)
-      // console.log(doc.data())
-      // console.log(doc.data().name)
-      }); 
-    });
-  } 
-
-setTimeout(joinAGroup, 2000); -->
-
-<!-- // ----------------  // working right now but can't pass the choice number into the next function, trying another way below. ------------------------
-        // function applyListeners(){
-        //   let allButtons = document.querySelectorAll(".btn.matchingButton");
-        //   let allButtonsArray = Array.prototype.slice.call(allButtons);
-
-        //   console.log(allButtonsArray)
-          
-        //   allButtonsArray.forEach(function(button){
-        //     console.log(button)
-        //     var choiceNumber = button.id[button.id.length - 1]
-        //     button.addEventListener("click", function(choiceNumber){
-        //       console.log(choiceNumber)
-        //       firebase.auth().onAuthStateChanged(function (user) {
-        //       db.collection("userstwo").doc(user.uid).get().then(function(doc) {
-
-        //       // console.log(button.id)
-        //       // someObj.addEventListener("click", some_func.bind(null, some_other_func), false);
-        //       console.log(user.uid)
-        //       console.log(doc.data())
-        //       console.log(doc.data().name)
-
-        //       var groupChoice = {"current group": "selected group 84!.."}
-
-        //       db.collection("userstwo").doc(user.uid).update(groupChoice).then(() => {
-        //       console.log("Document successfully written!");
-        //           });
-        //       }); 
-        //     });
-          
-        //     })
-              
-        //     })
-        // }
-
-        // setTimeout(applyListeners, 2000); -->
