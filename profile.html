@@ -6,56 +6,13 @@
     <title>My BCIT Project</title>
     <meta name="comp1800 boilerplate code" content="my bcit project">
     <meta name="author" content="BCIT">
+    <link rel="stylesheet" href="profile.css">
 
     <!-- Bootstrap for Mobile-first, and JQuery -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
-
-    <!-- Optional styles and scripts of your own -->
-    <style>
-        #topDescription {
-            border: 1px solid grey;
-            background-color: lightgray;
-            border-radius: 5px;
-            margin: auto;
-            color: #333333;
-            text-align: center;
-        }
-
-        .matchingButton {
-            color: whitesmoke;
-            background-color: #333333;
-        }
-
-        .groupBox {
-            background-color: lightgray;
-        }
-
-        .topMessage {
-            padding: 1%;
-        }
-
-        .card1 {
-            margin-left: auto;
-            margin-right: auto;
-            width: 35%;
-        }
-
-        .card2 {
-            margin-left: auto;
-            margin-right: auto;
-            width: 35%
-        }
-
-        .movieimg {
-            width: 17em;
-            height: 17em;
-        }
-    </style>
-
-</head>
+    </head>
 
 <body style="background-color: #333333;">
 
@@ -94,24 +51,12 @@
                     <h4 class="mt-0 mb-0">Amme1234</h4>
                     <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>Vancouver</p>
                     <p> No movie, No life</p>
-                    <button type="bottun" class="btn matchingButton">Edit profile</button>
+                    <button type="button" id="changeProfile" class="btn matchingButton">Edit profile</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="groupBox p-4 d-flex justify-content-end text-center">
-        <ul class="list-inline mb-0">
-            <li class="list-inline-item">
-                <h5 class="font-weight-bold mb-0 d-block">3</h5><small class="text-muted"> <i
-                        class="fa fa-picture-o mr-1"></i>Groups</small>
-            </li>
-            <li class="list-inline-item">
-                <h5 class="font-weight-bold mb-0 d-block">310</h5><small class="text-muted"> <i
-                        class="fa fa-user-circle-o mr-1"></i>Followers</small>
-            </li>
-        </ul>
-    </div>
     <div class="card-dec text-center"></div>
     <div class="container d-flex align-items-center justify-content-between mb-3"></div>
     <h5 class="mb-0">Streaming Service</h5>
@@ -175,7 +120,7 @@
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
-
+    <script src="/scripts/profile_kaz.js"></script>
 </body>
 
 </html>
