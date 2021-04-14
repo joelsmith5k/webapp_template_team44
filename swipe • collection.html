@@ -40,7 +40,8 @@
             height: fit-content;
             text-align: center;
             border: 1px solid black;
-            background-color: whitesmoke;
+            padding-top: 10px;
+            background-color: #333;
         }
 
         #body_container img {
@@ -65,10 +66,12 @@
 
         #nowatch {
             background-color: lightcoral;
+            width: 50%;
         }
 
         #yeswatch {
             background-color: lightgreen;
+            width: 50%;
         }
         
         .col-sm {
@@ -78,16 +81,19 @@
 
         .container {
             background-color: lightgrey;
-
-
         }
         
         body {
           background-color: #333;
         }
 
-        #active_page {
-          background-color: gold;
+        .card {
+          background-color: lightgrey;
+          border: 1px solid black;
+        }
+
+        #bottom_grid {
+          display: none;
         }
         
 
@@ -122,15 +128,13 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
-                  >Swipe</a
-                >
+                <a class="nav-link active" aria-current="page" href="#">Swipe</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">User Profile</a>
+                <a class="nav-link" href="./matches.html">Matches</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Groups</a>
+                <a class="nav-link" href="./groups.html">Groups</a>
               </li>
             </ul>
           </div>
@@ -140,15 +144,15 @@
       <div class="container" id="group_title">
         <div class="row">
           <div class="col-sm">
-            <h1 class="display-6"><b>THE BOYS</b></h1>
+            <h1 class="display-6" id="displayed-group-title"><b></b></h1>
           </div>
         </div>
       </div>
 
-      <div class="container" id="top_grid">
+      <!-- <div class="container" id="top_grid">
         <div class="row">
           <div class="col-sm">
-            <button type="button" class="btn btn-dark">Group Settings</button>
+            <button type="button" class="btn btn-dark">Groups</button>
           </div>
           <div class="col-sm" id="active_page">
             <button type="button" class="btn btn-dark">Swipe</button>
@@ -157,21 +161,20 @@
             <button type="button" class="btn btn-dark" id="swipeToMatchesButton">Matches</button>
           </div>
         </div>
-      </div>
+      </div> -->
 
   
     <div class="container" id="body_container">
-        <h1><span id="displayed-movie"></span></h1>
+        <!-- <h1><span id="displayed-movie"></span></h1> -->
 
         <div class="card-group">
           <div class="card">
             <img src="./images/bladerunner.jpg" class="card-img-top" id="displayed-movie-image" alt="...">
-
-
             <div class="card-body">
-              <h3 id="displayed-movie-small">TITLE</h3>
-              <h4 id="displayed-director">DIRECTOR</h4>
-              <h4 id="displayed-year">YEAR</h4>
+              <h3 id="displayed-movie-small">Welcome to Cineder :)</h3>
+              <button class="btn btn-warning" id="startButton" onclick="startSwipe()">Click here to start swiping!</button>
+              <h4 id="displayed-director"></h4>
+              <h4 id="displayed-year"></h4>
               <p class="card-text"><small class="text-muted" id="displayed-description"></small></p>
             </div>
           </div>
@@ -183,10 +186,10 @@
     <div class="container" id="bottom_grid">
       <div class="row">
         <div class="col-sm" id="nowatch">
-          <button type="button" class="btn btn-danger" id="noButton">I don't want to watch this...</button>
+          <button type="button" class="btn btn-danger" class="swipebutton" id="noButton">I don't want to watch this...</button>
         </div>
         <div class="col-sm" id="yeswatch">
-          <button type="button" class="btn btn-success" id="yesButton">I want to watch this!</button>
+          <button type="button" class="btn btn-success" class="swipebutton" id="yesButton">I want to watch this!</button>
         </div>
       </div>
     </div>
