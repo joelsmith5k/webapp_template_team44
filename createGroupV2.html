@@ -25,7 +25,7 @@
       <!-- Optional styles and scripts of your own -->
       <link rel="stylesheet" href="createGroupV2.css">
     </head>
-    <body>
+    <body style = "background-color: #333333;">
       <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Cineder</a>
@@ -44,14 +44,14 @@
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#"
-                  >Swiping Page</a
+                  >Groups</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Group Settings</a>
+                <a class="nav-link" href="./swipe • collection.html">Swipe</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Matches</a>
+                <a class="nav-link" href="./matches.html">Matches</a>
               </li>
             </ul>
           </div>
@@ -64,11 +64,11 @@
         </div>
         <br />
         <div class="mb-3">
-          <label for="groupDescription" class="form-label">Group Description</label>
+          <label for="groupDescription" class="form-label">Enter a brief description:</label>
           <textarea class="form-control" id="groupDescription" rows="3" placeholder="Type a brief description of your group so others can join!"></textarea>
         </div>
         <div class="input-group mb-3">
-          <label class="input-group-text" for="groupPhoto">Options</label>
+          <label class="input-group-text" for="groupPhoto">Banner</label>
           <select class="form-select" id="groupPhoto">
             <option selected>Choose a Group Photo..</option>
             <option value="empty_cinema">Theatre</option>
@@ -76,9 +76,7 @@
             <option value="projector">Projector</option>
           </select>
         </div>
-        <input id="makeGroupPublic" type="checkbox" />
-        <label class="form-check-label"> Make group public </label>
-        <br />
+        
         <br />
         <!-- <button type="submit" id="createGroup" onclick="location.href = 'groups.html';">Create Group!</button> -->
         <!-- <a href = "groups.html"> -->
@@ -117,13 +115,13 @@
                 var photo = document.getElementById("groupPhoto").value;
 
                 // Either true or false
-                var public = document.getElementById("makeGroupPublic").checked;
+                // var public = document.getElementById("makeGroupPublic").checked;
 
                 db.collection("groups").add({
                   name: name,
                   description: desc, // from textarea
                   photo: photo,//from dropdown menu
-                  public: public, //from checkbox
+                  // public: public, //from checkbox
                 });
                 setTimeout(function () {
                   window.location.href = "groups.html"; // this delay allows it to write to DB before redirect

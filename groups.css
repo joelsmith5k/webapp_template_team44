@@ -1,21 +1,21 @@
 
 #topDescription{
-    border:1px solid grey; 
-    background-color: lightgray; 
-    border-radius: 5px; 
+    /* border:1px solid #ffd700;  */
+    /* background-color:#0E0F0f;  */
     margin: auto;
-    color: #333333;
+    color:#ffd700;
     text-align: center;
-    width: 90%;
+    width: 100%;
 }
 
 .matchingButton{
-    color:whitesmoke;
-    background-color: #333333;
+    color: #ffd700;
+    background-color: #0E0F0f;
+    border: 1px solid #ffd700; 
 }
 
 .groupBox{
-    background-color: lightgray;
+    background-color: #0E0F0f;
     display: block;
 }
 
@@ -23,9 +23,22 @@
     padding: 1%;
 }
 
+.card-title{
+    color:whitesmoke;
+}
+
+.card-text{
+    color:whitesmoke;
+}
+
 #createGroupDiv{
     background-color: lightslategrey;
-    display: block;
+}
+
+#createGroupButton{
+    background-color: #0E0F0f;
+    border: 1px solid #ffd700;
+    margin-left: auto;
 }
 
 .container{
@@ -34,3 +47,4 @@
     margin-right: auto;
     margin-top: 2%;
 }
+
