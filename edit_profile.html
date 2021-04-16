@@ -6,76 +6,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="edit_profile.css">
 </head>
 
-<div class="container" style="color:whitesmoke">
+<div class="container" id = "formDiv">
     <div class="row">
         <div class="col-sm">
-            <h5 class="mb-0">Edit Profile</h5>
+            <h5 class="styleTitle">Edit Profile</h5>
 
             <body style="background-color: #333333;"></body>
-            <div class="container">
-                <label> User Name </label>
-                <input id="userName" type="text">
+            <div class="container">   
+                <input id="userName" class="styleBox" type="text" placeholder="User Name">
                 <br>
-                <label> About me </label>
-                <input id="aboutMe" type="text">
+                <input id="aboutMe" class="styleBox" type="text" placeholder="About Me">
                 <br>
-                <label> Country </label>
-                <input id="country" type="text">
+                <input id="country" class="styleBox" type="text" placeholder="Country">
                 <br>
-                <label> City </label>
-                <input id="city" type="text">
-                <br>
-                <br>
-                <button type="button" id="save" class="btn btn-outline-success">Save</button>
+                <input id="city" class="styleBox" type="text" placeholder="City">
                 <br>
             </div>
             <div class="container">
-                <h5 class="mb-0">Edit Streaming Service</h5>
-                <input id="amazon" type="checkbox">
+                <h5 class="styleTitle">Edit Streaming Service</h5>
+                <input id="amazon" class="styleCheck" type="checkbox">
                 <label class="form-check-label"> Amazon Prime </label>
                 <br>
-                <input id="netflix" type="checkbox">
+                <input id="netflix" class="styleCheck" type="checkbox">
                 <label class="form-check-label"> Netflix </label>
                 <br>
-                <input id="disney" type="checkbox">
+                <input id="disney" class="styleBox" type="checkbox">
                 <label class="form-check-label"> Disney+ </label>
                 <br>
-                <input id="hulu" type="checkbox">
+                <input id="hulu" class="styleBox" type="checkbox">
                 <label class="form-check-label"> Hulu </label>
-                <br>
-                <br>
-                <button type="button" id="save" class="btn btn-outline-success">Save</button>
                 <br>
             </div>
             <div class="container">
-                <h5 class="mb-0">Edit Favorite Genre</h5>
-                <input id="anime" type="checkbox">
+                <h5 class="styleTitle">Edit Favorite Genre</h5>
+                <input id="anime" class="styleBox" type="checkbox">
                 <label class="form-check-label"> Anime </label>
                 <br>
-                <input id="action" type="checkbox">
+                <input id="action" class="styleBox" type="checkbox">
                 <label class="form-check-label"> Action </label>
                 <br>
-                <input id="comedy" type="checkbox">
+                <input id="comedy" class="styleBox" type="checkbox">
                 <label class="form-check-label"> Comedy </label>
                 <br>
-                <input id="drama" type="checkbox">
+                <input id="drama" class="styleBox" type="checkbox">
                 <label class="form-check-label"> Drama </label>
                 <br>
-                <input id="documentary" type="checkbox">
+                <input id="documentary" class="styleBox" type="checkbox">
                 <label class="form-check-label"> Documentary </label>
                 <br>
-                <input id="horror" type="checkbox">
+                <input id="horror" class="styleBox" type="checkbox">
                 <label class="form-check-label"> Horror </label>
                 <br>
-                <input id="mystery" type="checkbox">
+                <input id="mystery" class="styleBox" type="checkbox">
                 <label class="form-check-label"> Mystery </label>
                 <br>
-                <input id="romance" type="checkbox">
+                <input id="romance" class="styleBox" type="checkbox">
                 <label class="form-check-label"> Romance </label>
                 <br>
-                <input id="scienceFiction" type="checkbox">
+                <input id="scienceFiction" class="styleBox" type="checkbox">
                 <label class="form-check-label"> Science Fiction </label>
                 <br>
                 <br>
@@ -113,7 +104,7 @@
             <!-- JS files: Your own JavaScript functions included here    -->
             <!--------------------------------------------------------------------->
 
-            <script src="/scripts/edit_profile.js"></script>
+            <script src="./scripts/edit_profile.js"></script>
             </body>
 
 </html>

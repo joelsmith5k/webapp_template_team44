@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    </head>
+</head>
 
 <body style="background-color: #333333;">
 
@@ -48,45 +48,47 @@
                 <div class="rounded mx-auto d-block card3"><img src="./images/profile.jpg" alt="..." width="400"
                         class="rounded mb-2 img-thumbnail"></div>
                 <div class="media-body mb-5 text-white">
-                    <h4 class="mt-0 mb-0">Amme1234</h4>
-                    <p class="small mb-4"> <i class="fa fa-map-marker mr-2"></i>Vancouver</p>
-                    <p> No movie, No life</p>
-                    <a href="edit_profile.html" class = "btn bg-sm bg-warning">Edit profile</a>
+                    <h3 class="mt-0 mb-0" id="name"></h3>
+                    <br>
+                    <p id="aboutMe"> </p>
+                    <p id="country"></p>
+                    <p id="city"></p>
+                    <a href="edit_profile.html" id="changeProfile" class="btn bg-sm bg-warning">Edit profile</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container" style = "color:whitesmoke">
+    <div class="container" style="color:whitesmoke">
         <div class="row">
-          <div class="col-sm">
-            <br>
-            <h5 class="mb-0">Streaming Service</h5>
-            <br>
-            <p>Amazon Prime</p>
-            <img class="movieimg" src="./images/primevideo.jpeg" alt="Card image cap">
-            <br>
-            <br>
-            <p>Net Flix</p>
-            <img class="movieimg" src="./images/netflix.png" alt="Card image cap">
-            <br>
-            <br>
-          </div>
-          <div class="col-sm">
-            <h5 class="mb-0">Favorite Genre</h5>
-            <br>
-            <p>Romance</p>
-            <img class="movieimg" src="./images/romance.jpeg" alt="Card image cap">
-            <br>
-            <br>
-            <p>Mystery</p>
-            <img class="movieimg" src="./images/mystery.jpeg" alt="Card image cap">
-            <br>
-          </div>
+            <div class="col-sm" id="streamingservice">
+                <br>
+                <h5 class="mb-0">Streaming Service</h5>
+                <br>
+                <p>Amazon Prime</p>
+                <img class="movieimg" src="./images/primevideo.jpeg" alt="Card image cap">
+                <br>
+                <br>
+                <p>Net Flix</p>
+                <img class="movieimg" src="./images/netflix.png" alt="Card image cap">
+                <br>
+                <br>
+            </div>
+            <div class="col-sm">
+                <h5 class="mb-0">Favorite Genre</h5>
+                <br>
+                <p>Romance</p>
+                <img class="movieimg" src="./images/romance.jpeg" alt="Card image cap">
+                <br>
+                <br>
+                <p>Mystery</p>
+                <img class="movieimg" src="./images/mystery.jpeg" alt="Card image cap">
+                <br>
+            </div>
         </div>
-      </div>
     </div>
-    
+    </div>
+
 
     <footer>
     </footer>
@@ -94,14 +96,33 @@
     <!------------------Test Test Test---------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
     <!----------------------------------------------->
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
         </script>
 
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+
+
+    <!-- Link to the api keys for your firebase project -->
+    <script src="scripts/firebase_api_kaz.js"></script>
+
+
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
-    <script src="/scripts/profile_kaz.js"></script>
+    <script src="scripts/profile_kaz.js"></script>
 </body>
 
 </html>
