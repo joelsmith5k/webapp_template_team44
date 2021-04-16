@@ -35,16 +35,24 @@ Content of the project folder:
 ├── matches.html             # This is the matches section of the application, and allows user to see their groups matches
 
 
-├── profile.html             # This is the profile section.
-
+├── profile.html             # This is the user's profile page. 
+├── edit_profile.html        # This is the page to edit user profile.
 
 └── README.md
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
-    /anime.jpeg              # For use in profile.html
-    
+    /anime.jpeg              # It's printed on profile.html if the user choose anime for 'favorite genre'  
+    /comedy.png              # It's printed on profile.html if the user choose comedy for 'favorite genre'   
+    /disneyplus.jpeg         # It's printed on profile.html if the user choose disney plus for 'streaming service'   
+    /hulu.png                # It's printed on profile.html if the user choose hulu for 'streaming service'   
+    /mystery.jpeg            # It's printed on profile.html if the user choose mystery for 'favorite genre'   
+    /netflix.png             # It's printed on profile.html if the user choose netflix for 'streaming service'   
+    /primevideo.jpeg         # It's printed on profile.html if the user choose prime video for 'streaming service' 
+    /romance.jpeg            # It's printed on profile.html if the user choose romance for 'favorite genre' 
+
+
 ├── scripts                  # Folder for scripts
     /blah.js                 # 
 ├── styles                   # Folder for styles
