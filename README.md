@@ -6,11 +6,11 @@
 * [Content](#content)
 
 ## General Info
-This browser based web application to ...
+Cineder is a mobile application that helps inidividuals efficiently find movies that they would like to watch together.
 
 ## Collaborators:
 * Joel Smith:
-* Martin Gatchev:
+* Martin Gatchev
 * Kazuma Kunogi
 
 ## Technologies:
