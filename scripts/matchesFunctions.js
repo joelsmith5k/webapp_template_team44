@@ -7,6 +7,7 @@ var movieIndex = 0;
 /* ------------------------------ Sort Object Functions ------------------------------ */
 
 function sort_object(obj) {
+    // Function takes an object and returns a sorted object with values descending from highest to lowest.
     items = Object.keys(obj).map(function(key) {
         return [key, obj[key]];
     });
@@ -157,6 +158,7 @@ function addMatchesToPage(movieVariable, percentLikes) {
     var movieYear = movieVariable.data().year;
     var movieDescription = movieVariable.data().description;
     var movieImageURL = movieVariable.data().image_url;
+    var movieIMDBURL = movieVariable.data().imdb_url;
 
 
     
@@ -188,9 +190,10 @@ function addMatchesToPage(movieVariable, percentLikes) {
     var textDirector = document.createTextNode(movieDirector)
     matchedDirector.appendChild(textDirector)
 
-    var matchPercentage = document.createElement("h5")
+    var matchPercentage = document.createElement("h6")
     var stringPercent = Math.trunc(percentLikes * 100) 
     var textMatch = document.createTextNode(stringPercent + "% Match")
+    matchPercentage.style.color = "gold"
     matchPercentage.appendChild(textMatch)
 
     matchedMovieTitle.appendChild(matchedDirector)
@@ -203,6 +206,19 @@ function addMatchesToPage(movieVariable, percentLikes) {
 
     matchedMovieTitle.appendChild(matchedDescription)
 
+    var infoLink = document.createElement("a")
+    var infoButton = document.createElement("button")
+    var infoText = document.createTextNode("More info.")
+
+    infoButton.appendChild(infoText)
+    infoLink.setAttribute("href", movieIMDBURL);
+    console.log("IMDBLINK" + movieIMDBURL)
+    infoButton.setAttribute("class", "btn btn-warning");
+    infoButton.style["background-color"] = "#0E0F0f";
+    infoButton.style.color = "gold";
+    infoButton.style["margin-top"] = "20px";
+    infoLink.appendChild(infoButton)
+    matchedMovieTitle.appendChild(infoLink)
 
     movieDivTwo.appendChild(matchedMovieTitle)
     

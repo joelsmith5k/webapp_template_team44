@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Cineder Swipe</title>
+    <title>Cinéder • Swipe</title>
     <meta name="comp1800 boilerplate code" content="my bcit project">
     <meta name="author" content="BCIT">
 
@@ -15,108 +15,8 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     
-
     <!-- Optional styles and scripts of your own -->
-    <style>
-        #topDescription {
-            border:1px solid grey; 
-            background-color: lightgray; 
-            border-radius: 5px;
-            padding-top: 10px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            color: #333333;
-            text-align: center;
-            font-size: 30px;
-        }
-        
-        img {
-          width: 200px;
-          height: 300px;
-          object-fit: contain;
-        }
-
-        #body_container {
-            height: fit-content;
-            text-align: center;
-            border: 1px solid black;
-            padding-top: 10px;
-            background-color: #0E0F0f;
-        }
-
-        #body_container img {
-            margin-top: 10px;
-        }
-
-
-        #group_title {
-            text-align: center;
-            border: 1px solid #333;
-        }
-
-        #bottom_grid {
-            text-align: center;
-            border: 1px solid black;
-        }
-
-        #nowatch {
-            background-color: lightcoral;
-            width: 50%;
-        }
-
-        #yeswatch {
-            background-color: lightgreen;
-            width: 50%;
-        }
-        
-        .col-sm {
-            padding: 20px;
-            border: 1px solid black;
-            background-color: #0E0F0f;
-        }
-
-        .container {
-          background-color: #333;
-        }
-        
-        body {
-          background-color: #333;
-          color: white;
-        }
-
-        .card {
-          background-color: #0E0F0f;
-          border: 1px solid #333;
-        }
-
-        #bottom_grid {
-          display: none;
-        }
-
-        #startButton {
-           background-color: #0E0F0f;
-           color: gold;
-           margin-top: 4%;
-       }
-
-       .text-muted {
-         color: white;
-       }
-
-       #displayed-group-title {
-         color: gold;
-       }
-
-       #displayed-description {
-         font-size: 15px;
-         font-weight: 100;
-       }
-
-       
-       
-        
-
-    </style>
+    <link rel="stylesheet" href="./styles/swipe • collection.css">
 
 </head>
 
@@ -125,10 +25,6 @@
     <!-------------------------------------->
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
-
-    
-
-  
 
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
@@ -180,6 +76,7 @@
               <h4 id="displayed-director"></h4>
               <h4 id="displayed-year"></h4>
               <p class="card-text" id="displayed-description"></p>
+              <a id="imdbButton"><button class="btn btn-warning" id="imdb_button">More info.</button></a>
             </div>
           </div>
         </div>

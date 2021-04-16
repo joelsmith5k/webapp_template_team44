@@ -3,9 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Cineder Swipe</title>
-    <meta name="comp1800 boilerplate code" content="my bcit project">
-    <meta name="author" content="BCIT">
+    <title>Cinéder</title>
+    <meta name="Cineder" content="Cineder login page">
 
     <!-- Bootstrap for Mobile-first, and JQuery -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,80 +12,12 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
-    
 
-    <!-- Optional styles and scripts of your own -->
-    <style>
-        #topDescription {
-            border:1px solid grey; 
-            background-color: lightgray; 
-            border-radius: 5px;
-            padding-top: 10px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            color: #333333;
-            text-align: center;
-            font-size: 30px;
-        }
-        
-        #body_container {
-            height: fit-content;
-            text-align: center;
-            border: 1px solid black;
-            background-color: whitesmoke;
-        }
+    <!-- Personal CSS -->
 
-        #body_container img {
-            margin-top: 10px;
-        }
+    <link rel="stylesheet" href="./styles/swipe • login.css">
 
-        #top_grid {
-            text-align: center;
-            border: 1px solid black;
-        }
-
-        #group_title {
-            text-align: center;
-            border: 1px solid black;
-            margin-top: 10px;
-        }
-
-        #bottom_grid {
-            text-align: center;
-            border: 1px solid black;
-        }
-
-        #nowatch {
-            background-color: lightcoral;
-        }
-
-        #yeswatch {
-            background-color: lightgreen;
-        }
-        
-        .col-sm {
-            padding: 20px;
-            border: 1px solid black;
-        }
-
-        .container {
-            background-color: lightgrey;
-            text-align: center;
-
-
-        }
-        
-        body {
-          background-color: #333;
-        }
-
-        #firebaseui-auth-container {
-          padding-bottom: 10%;
-        }
-        
-
-    </style>
-
+   
 </head>
 
 <body>
@@ -96,29 +27,28 @@
     <!-------------------------------------->
 
 
-  
-    
       <div class="container">
-        <h1 class="display-4">Welcome to Cinéder!</h1>
-        <h1 class="display-4">Let's get you signed in :)</h1>
+          <div class="title">
+            <h1 class="display-4">Welcome to Cinéder!</h1>
+            <h1 class="display-4">Let's get you signed in :)</h1>
+          </div>
+
+          <img src="https://firebasestorage.googleapis.com/v0/b/cineder-3be64.appspot.com/o/cineder_logos%2FCINEDERLOGO_gold.png?alt=media&token=0922423b-3168-4f55-bfb8-a89afad027fe" class="card-img-top" id="displayed-movie-image" alt="...">
+
+        
         <br></br>
         <div id="firebaseui-auth-container"></div>
         <div id="loader">Loading...</div>
       </div>
   
 
-    
-
-
-
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
     <!----------------------------------------------->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
     </script>
-
-    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
     
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
@@ -130,7 +60,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
 
-
     <!-- Link to the api keys for your firebase project -->
     <script src="scripts/firebase_api_marti.js"></script>
 
@@ -141,5 +70,4 @@
     <script src="scripts/swipeLoginFunctions.js"></script>
 
 </body>
-
 </html>

@@ -15,9 +15,11 @@ no = document.getElementById("noButton");
 
 function startSwipe() {
     var swipeButtons = document.getElementById("bottom_grid")
+    var imdbButton = document.getElementById("imdb_button")
     var initialButton = document.getElementById("startButton")
 
     swipeButtons.style.display = "block";
+    imdbButton.style.display = "initial";
     initialButton.style.display = "none";
     
     firebase.auth().onAuthStateChanged(function(user) {
@@ -61,21 +63,7 @@ function displayCurrentUser() {
       });
 }
 
-
-
-
 displayCurrentUser()
-
-
-
-var displayNextUser = () => {
-    //document.getElementById('yes').addEventListener('click', function () {
-    var userEmail = userstwo[0].data().email;
-
-    userIndex++;
-    console.log(userEmail);
-}
-
 
 
 function getUsers() {
@@ -121,21 +109,31 @@ var displayMovie = () => {
             var movieYear = movies[movieIndex].data().year;
             var movieDescription = movies[movieIndex].data().description;
             var movieImageURL = movies[movieIndex].data().image_url;
+            var movieIMDBURL = movies[movieIndex].data().imdb_url;
+
+            document.getElementById('imdbButton').setAttribute("href", movieIMDBURL);
         } else {
             var movieTitle = ""
             var movieDirector = "You've gone through all the movies!"
             var movieYear = "Why don't you go see your group's matches?"
             var movieDescription = "Here's a photo of a dog if you want to just chill..."
             var movieImageURL = "https://firebasestorage.googleapis.com/v0/b/cineder-3be64.appspot.com/o/movie_posters%2Fnomoremovies.png?alt=media&token=0adb5278-6d72-42c1-83cf-855e932b8eae"
+
+
+            document.getElementById('imdbButton').setAttribute("href", "./matches.html");
+            document.getElementById("imdb_button").childNodes[0].nodeValue="See Matches!";;
+
+            
         }
 
         document.getElementById('displayed-movie-image').setAttribute("src", movieImageURL);
 
-        // document.getElementById('displayed-movie').innerHTML = movieTitle;
         document.getElementById('displayed-movie-small').innerHTML = movieTitle;
         document.getElementById('displayed-director').innerHTML = movieDirector;
         document.getElementById('displayed-year').innerHTML = movieYear;
-        document.getElementById('displayed-description').innerHTML = movieDescription ;
+        document.getElementById('displayed-description').innerHTML = movieDescription;
+
+        
 
 }
 
@@ -168,6 +166,9 @@ var approveMovie = () => {
         var movieYear = movies[movieIndex].data().year;
         var movieDescription = movies[movieIndex].data().description;
         var movieImageURL = movies[movieIndex].data().image_url;
+        var movieIMDBURL = movies[movieIndex].data().imdb_url;
+
+        document.getElementById('imdbButton').setAttribute("href", movieIMDBURL);
 
         firebase.auth().onAuthStateChanged(function (user) {
             db.collection("userstwo").doc(user.uid).get().then(function (doc) {
@@ -192,7 +193,10 @@ var approveMovie = () => {
         var movieYear = "Why don't you go see your group's matches?"
         var movieDescription = "Here's a photo of a dog if you want to just chill..."
         var movieImageURL = "https://firebasestorage.googleapis.com/v0/b/cineder-3be64.appspot.com/o/movie_posters%2Fnomoremovies.png?alt=media&token=0adb5278-6d72-42c1-83cf-855e932b8eae"
-        
+
+        document.getElementById('imdbButton').setAttribute("href", "./matches.html");
+        document.getElementById("imdb_button").childNodes[0].nodeValue="See Matches!";;
+
         firebase.auth().onAuthStateChanged(function (user) {
             db.collection("userstwo").doc(user.uid).get().then(function (doc) {
     
@@ -213,6 +217,10 @@ var approveMovie = () => {
         var movieYear = "Why don't you go see your group's matches?"
         var movieDescription = "Here's a photo of a dog if you want to just chill..."
         var movieImageURL = "https://firebasestorage.googleapis.com/v0/b/cineder-3be64.appspot.com/o/movie_posters%2Fnomoremovies.png?alt=media&token=0adb5278-6d72-42c1-83cf-855e932b8eae"
+        var movieIMDBURL = "https://www.imdb.com/"
+
+        document.getElementById('imdbButton').setAttribute("href", "./matches.html");
+        document.getElementById("imdb_button").childNodes[0].nodeValue="See Matches!";;
     }
 
     document.getElementById('displayed-movie-image').setAttribute("src", movieImageURL);
@@ -221,6 +229,7 @@ var approveMovie = () => {
     document.getElementById('displayed-director').innerHTML = movieDirector;
     document.getElementById('displayed-year').innerHTML = movieYear;
     document.getElementById('displayed-description').innerHTML = movieDescription;
+
 
 }
 
@@ -234,6 +243,9 @@ var disapproveMovie = () => {
         var movieYear = movies[movieIndex].data().year;
         var movieDescription = movies[movieIndex].data().description;
         var movieImageURL = movies[movieIndex].data().image_url;
+        var movieIMDBURL = movies[movieIndex].data().imdb_url;
+
+        document.getElementById('imdbButton').setAttribute("href", movieIMDBURL);
 
         firebase.auth().onAuthStateChanged(function (user) {
             db.collection("userstwo").doc(user.uid).get().then(function (doc) {                
@@ -252,7 +264,11 @@ var disapproveMovie = () => {
         var movieYear = "Why don't you go see your group's matches?"
         var movieDescription = "Here's a photo of a dog if you want to just chill..."
         var movieImageURL = "https://firebasestorage.googleapis.com/v0/b/cineder-3be64.appspot.com/o/movie_posters%2Fnomoremovies.png?alt=media&token=0adb5278-6d72-42c1-83cf-855e932b8eae"
-        
+        var movieIMDBURL = "https://www.imdb.com/"
+
+        document.getElementById('imdbButton').setAttribute("href", "./matches.html");
+        document.getElementById("imdb_button").childNodes[0].nodeValue="See Matches!";;
+
         firebase.auth().onAuthStateChanged(function (user) {
             db.collection("userstwo").doc(user.uid).get().then(function (doc) {
     
@@ -273,6 +289,10 @@ var disapproveMovie = () => {
         var movieYear = "Why don't you go see your group's matches?"
         var movieDescription = "Here's a photo of a dog if you want to just chill..."
         var movieImageURL = "https://firebasestorage.googleapis.com/v0/b/cineder-3be64.appspot.com/o/movie_posters%2Fnomoremovies.png?alt=media&token=0adb5278-6d72-42c1-83cf-855e932b8eae"
+        var movieIMDBURL = "https://www.imdb.com/"
+
+        document.getElementById('imdbButton').setAttribute("href", "./matches.html");
+        document.getElementById("imdb_button").childNodes[0].nodeValue="See Matches!";;
     }
 
     //document.getElementById('yes').addEventListener('click', function () {
@@ -283,7 +303,9 @@ var disapproveMovie = () => {
     document.getElementById('displayed-movie-small').innerHTML = movieTitle;
     document.getElementById('displayed-director').innerHTML = movieDirector;
     document.getElementById('displayed-year').innerHTML = movieYear;
-    document.getElementById('displayed-description').innerHTML = movieDescription ;
+    document.getElementById('displayed-description').innerHTML = movieDescription;
+
+    
 
     
     console.log(movieTitle);
