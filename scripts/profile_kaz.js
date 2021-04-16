@@ -1,5 +1,3 @@
-
-
 var profileBtn = document.getElementById("changeProfile");
 
 profileBtn.addEventListener('click', function () {
@@ -92,8 +90,6 @@ function showProfile() {
                         document.getElementById("streamingservice").appendChild(image);
                     }
                 });
-            // var name = document.getElementById("name");
-            // name.appendChild(n);
         };
     });
 };

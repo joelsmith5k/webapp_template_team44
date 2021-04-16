@@ -46,8 +46,8 @@ function getFormInputs() {
             mystery: mystery,
             romance: romance,
             scienceFiction: scienceFiction
-          }).then(function(){
-            window.location.assign('profile.html')
+          }).then(function () {
+            window.location.assign("profile.html");
           })
         });
       });
