@@ -1,0 +1,25 @@
+/* CSS for swipe • login.html */
+
+.container {
+    background-color: #333;
+    text-align: center;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.title {
+    margin-top: 30px;
+    color: gold;
+}
+
+body {
+  background-color: #333;
+}
+
+#firebaseui-auth-container {
+  padding-bottom: 10%;
+}

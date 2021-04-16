@@ -1,0 +1,103 @@
+/* CSS for swipe • swipe • collection.html */
+
+#topDescription {
+    border:1px solid grey; 
+    background-color: lightgray; 
+    border-radius: 5px;
+    padding-top: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #333333;
+    text-align: center;
+    font-size: 30px;
+}
+
+img {
+  width: 200px;
+  height: 300px;
+  object-fit: contain;
+}
+
+#body_container {
+    height: fit-content;
+    text-align: center;
+    border: 1px solid black;
+    padding-top: 10px;
+    background-color: #0E0F0f;
+}
+
+#body_container img {
+    margin-top: 10px;
+}
+
+
+#group_title {
+    text-align: center;
+    border: 1px solid #333;
+}
+
+#bottom_grid {
+    text-align: center;
+    border: 1px solid black;
+}
+
+#nowatch {
+    background-color: #99120e;
+    width: 50%;
+}
+
+#yeswatch {
+    background-color: #25ab0a;
+    width: 50%;
+}
+
+.col-sm {
+    padding: 20px;
+    border: 1px solid black;
+    background-color: #0E0F0f;
+}
+
+.container {
+  background-color: #333;
+}
+
+body {
+  background-color: #0E0F0f;
+  color: white;
+}
+
+.card {
+  background-color: #0E0F0f;
+  border: 1px solid #333;
+}
+
+#imdb_button {
+  background-color: #0E0F0f;
+  color: gold;
+  margin-top: 4%;
+  display: none;
+  text-align: center;
+}
+
+#bottom_grid {
+  display: none;
+}
+
+#startButton {
+   background-color: #0E0F0f;
+   color: gold;
+   margin-top: 4%;
+}
+
+.text-muted {
+ color: white;
+}
+
+#displayed-group-title {
+ color: gold;
+}
+
+#displayed-description {
+ font-size: 15px;
+ font-weight: 100;
+}
