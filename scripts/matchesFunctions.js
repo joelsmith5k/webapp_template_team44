@@ -4,13 +4,6 @@ var movies;
 var movieIndex = 0;
 
 
-/* ------------------------------ HTML Re-Direct Functions ------------------------------ */
-
-// document.getElementById(id = "matchesToSwipeButton").onclick = function () {
-//     location.href = "./swipe • collection.html";
-// };
-
-
 /* ------------------------------ Sort Object Functions ------------------------------ */
 
 function sort_object(obj) {
@@ -31,7 +24,7 @@ function sort_object(obj) {
 
 
 
-/* ------------------------------ Movie Display Functions ------------------------------ */
+// ------------------------------ Match Logic --------------------------------------
 
 // Find the current users group name, pass this information to findAllUsers function
 function runMatchesPage(){
@@ -49,7 +42,6 @@ function runMatchesPage(){
         })
     })
 }
-
 
 // Find all users that are in the same group, create a list, containing lists of their desired movies. 
 // Pass this master list to sortAndMatch
@@ -110,33 +102,12 @@ function sortAndMatch(allMoviesList, total_users){
 }
 
 
-    runMatchesPage();
+runMatchesPage();
 
-// ------------------------------ Joel's Code Above--------------------------------------
-// Yo Marti this is what I did:
-// 1. copied my JS functions from scratch.html to ^^
-// 2. Commented out your call to getMovies(); in line 108
-// 3. Called getMovies from my last function in line 79, passed it the dictionary (countedMovies)
-// 4. added if statement in line 101.. for each movie in the database, if the dictionary ^^ has that key, it passes it to addMatchesPage()
-// 5. Did not alter addMatchesPage() at all
-//  Test it out with a few diff groups and see if it works for you too. Will have to add in some sort of rank?
 
-function getMovies(sortedMovies, total_users) {
-    db.collection("movies")
-        .get()
-        .then(function (snap) {
-            console.log(sortedMovies)
-            movies = snap.docs;
-            console.log(movies)
-            snap.forEach(element => {
-                if (sortedMovies.hasOwnProperty(element.data().title)) {
-                    let totalLikes = sortedMovies[element.data().title];
-                    let percentLikes = totalLikes / total_users
-                    addMatchesToPage(element, percentLikes)
-                }
-            });
-        })
-}
+
+
+/* ------------------------------ Movie Display Functions ------------------------------ */
 
 
 
@@ -147,8 +118,6 @@ function getMoviesTwo(sortedMovies, total_users) {
             console.log(sortedMovies)
             movies = snap.docs;
             console.log(movies)
-
-
 
             for (var key in sortedMovies) {
                 // check if the property/key is defined in the object itself, not in parent
@@ -163,20 +132,8 @@ function getMoviesTwo(sortedMovies, total_users) {
                     })
                 }
             }
-
-            // OLD FOR LOOP, NOT ORDERED BY VALUE
-            // snap.forEach(element => {
-            //     if (sortedMovies.hasOwnProperty(element.data().title)) {
-            //         let totalLikes = sortedMovies[element.data().title];
-            //         let percentLikes = totalLikes / total_users
-            //         addMatchesToPage(element, percentLikes)
-            //     }
-            // });
         })
 }
-
-
-// getMovies();
 
 var displayGroupTitle = () => {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -189,54 +146,6 @@ var displayGroupTitle = () => {
 }
 
 displayGroupTitle()
-
-
-
-function addMovieToPage() {
-
-    var movieDiv = document.createElement("div");
-    movieDiv.setAttribute("class", "row align-items-center");
-
-    var movieDivTwo = document.createElement("div");
-    movieDivTwo.setAttribute("class", "match_col");
-    var imageAside = document.createElement("aside");
-    imageAside.setAttribute("class", "match_image");
-    var movieImage = document.createElement("img");
-    movieImage.setAttribute("src", "./images/ikiru.jpg")
-    imageAside.appendChild(movieImage)
-    movieDivTwo.appendChild(imageAside)
-
-    // Info for movies here
-    // Title
-    var matchedMovieTitle = document.createElement("div")
-    matchedMovieTitle.setAttribute("class", "match_text")
-    var titleHeader = document.createElement("h2")
-    var titleText = document.createTextNode("Tester Movie (1969)")
-    titleHeader.appendChild(titleText)
-
-    matchedMovieTitle.appendChild(titleHeader)
-
-    // Director
-    var matchedDirector = document.createElement("h5")
-    var textDirector = document.createTextNode("Tester Director")
-    matchedDirector.appendChild(textDirector)
-
-    matchedMovieTitle.appendChild(matchedDirector)
-
-    // Description
-    var matchedDescription = document.createElement("h6")
-    var textDescription = document.createTextNode("Tester Description")
-    matchedDescription.appendChild(textDescription)
-
-    matchedMovieTitle.appendChild(matchedDescription)
-
-
-    movieDivTwo.appendChild(matchedMovieTitle)
-    
-    movieDiv.appendChild(movieDivTwo)
-
-    document.getElementById("matches_container").appendChild(movieDiv)
-}
 
 
 function addMatchesToPage(movieVariable, percentLikes) {
@@ -309,31 +218,3 @@ function addMatchesToPage(movieVariable, percentLikes) {
 
 
 
-// addMatchesToPage()
-
-
-
-
-/* <div class="row align-items-center">
-    <div class="match_col">
-        <aside class="match_image">
-            <img src="./images/ikiru.jpg" width="200" height="300">
-            </aside>
-            <div class="match_text">
-                <h2>Ikiru (1952)</h2>
-                <h5>Directed by: Akira Kurosawa</h5>
-                <h6>Lorem Ipsum.</h6>
-                <button type="button" class="btn btn-dark">More info.</button>
-            </div>
-          </div>
-    </div> */
-
-
-
-async function hello() {
-    return "hello"
-};
-
-hello().then((value) => console.log(value))
-
-// syncMovies.then((value) => console.log(value))
