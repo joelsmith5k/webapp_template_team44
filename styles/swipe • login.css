@@ -1,7 +1,7 @@
 /* CSS for swipe • login.html */
 
 .container {
-    background-color: #333;
+    background-color: #0E0F0f;
     text-align: center;
 }
 
@@ -17,7 +17,7 @@ img {
 }
 
 body {
-  background-color: #333;
+  background-color: #0E0F0f;
 }
 
 #firebaseui-auth-container {

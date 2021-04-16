@@ -277,7 +277,6 @@ var disapproveMovie = () => {
                 var movieToAdd = movies[movieIndex - 1].data().title;
                 
                 currentUser.update({
-                    desired_movies: firebase.firestore.FieldValue.arrayUnion(movieToAdd),
                     last_swipe_index: movieIndex
                 })
             })
@@ -364,83 +363,3 @@ function printUserEmail() {
 }
 
 printUserEmail();
-
-
-
-/* ------------------------------ HTML Re-Direct Functions ------------------------------ */
-
-
-// document.getElementById(id = "swipeToMatchesButton").onclick = function () {
-//     location.href = "./matches.html";
-// };
-
-
-
-// function addDesiredMovie() {
-
-//     let currentUserPromise = new Promise((resolve, reject) => {
-//         firebase.auth().onAuthStateChanged(function(user) {
-//             if (user) {
-//                 console.log("currentUserPromise" + user)
-//                 resolve(user)
-//             } else {
-//                 // No user is signed in.
-//             }
-//         })
-//     })
-
-//     let currentIDPromise = new Promise ((resolve, reject) => {
-//         currentUserPromise.then((user) => {
-//             let userID = findUserID(user)
-//             console.log("THIS HERE IS THE USERID")
-//             console.log(userID)
-//             resolve(userID)
-//         }).catch((user) => {
-//             console.log("Something is going wrong.")
-//         })
-//     })
-
-//     currentUserPromise.then((user) => {
-//         console.log("DESIRE MOVIE User")
-//         console.log(user.email)  
-        
-//         var userRef = db.collection('userstwo').doc("CoolGuy");
-
-//         var setWithMerge = userRef.set({
-//             desired: [],
-//             desiredTwo: "ok",
-//             guy: "bless"
-//         }, { merge: true });
-
-//     }).catch((user) => {
-//         console.log("Something is going wrong.")
-//     })
-
-
-
-//     var userRef = db.collection('userstwo').doc('BJ');
-
-    
-// }
-
-
-// addDesiredMovie();
-
-// var users;
-
-// function findUserID(email) {
-    
-//     db.collection("userstwo")
-//         .get()
-//         .then(function (snap) {
-//             users = snap.docs;
-//             users.forEach(function (user) {
-//                 console.log(user.id)
-//                 console.log(user.data().email)
-//                 if (email == user.data().email) {
-//                     return user.id
-//                 }
-
-//             });
-//         })
-// 
