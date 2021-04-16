@@ -1,4 +1,5 @@
 function greetingName(){
+    // Function that finds current user's name, and displays name on main.html
 
     firebase.auth().onAuthStateChanged(function (user) {
 

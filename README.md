@@ -7,8 +7,6 @@
 ## General Info
 This browser based web application to ...
 
-Test Test Test
-
 Martin Gatchev
     Creator of the swipe.html
 

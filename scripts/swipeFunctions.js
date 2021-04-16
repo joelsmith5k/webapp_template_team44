@@ -1,10 +1,12 @@
-// VARIABLES
+// Variables allow indexing for the movies
 
 var currentUser;
 
+// This allows the program to index through the "movie" collection.
 var movies;
 var movieIndex = 0;
 
+// This allows users to return to the list of movies they are swiping on, rather than always starting form the beginning
 var userstwo;
 var userIndex = 0;
 
@@ -14,6 +16,8 @@ no = document.getElementById("noButton");
 /* ------------------------ Start Swipe Button Functions ------------------------ */
 
 function startSwipe() {
+    // Initializes the swiping process
+
     var swipeButtons = document.getElementById("bottom_grid")
     var imdbButton = document.getElementById("imdb_button")
     var initialButton = document.getElementById("startButton")
@@ -44,18 +48,13 @@ function startSwipe() {
 /* ------------------------------ User Functions ------------------------------ */
 
 function displayCurrentUser() {
+    // Returns the current user on the page
+
     firebase.auth().onAuthStateChanged(function(user) {
         db.collection("userstwo").doc(user.uid).get().then(function(doc) {
-            console.log(user.uid)
-            console.log(doc.data())
-            console.log(doc.data().name)
         })
         if (user) {
             currentUser = user
-            // console.log("displayUser")
-            // console.log(currentUser.email)
-            // console.log(currentUser.displayName)
-            // console.log(currentUser.uid)
             return currentUser
         } else {
           // No user is signed in.
@@ -63,11 +62,13 @@ function displayCurrentUser() {
       });
 }
 
+
 displayCurrentUser()
 
 
 function getUsers() {
     // Returns an array of the database collection for userstwo.
+
     db.collection("userstwo")
         .get()
         .then(function (snap) {
@@ -76,32 +77,15 @@ function getUsers() {
         })
 }
 
+
 getUsers();
 
 
 /* ------------------------------ Movie Functions ------------------------------ */
 
 
-
-function readTitle() {
-    // Function used to access a specific object contained in "movies", and sets the HTML "displayed-movie" to be it
-    // In this case, it is reading "Bladerunner" 
-    db.collection("movies").doc("Bladerunner")
-        .onSnapshot(function (c) {
-            //console.log ("current document data: " + c.data());                       //.data() returns data object
-            document.getElementById("displayed-movie").innerHTML = c.data().title; //using vanilla javascript
-            //$('#quote-goes-here').text(c.data().quote);                             //using jquery object dot notation
-            //$("#quote-goes-here").text(c.data()["quote"]);                          //using json object indexing
-        })
-}
-
-// readTitle();
-
-
-
-
 var displayMovie = () => {
-    //document.getElementById('yes').addEventListener('click', function () {
+    // Function that shows a movie that allows a user to "swipe" on 
     
         if (movieIndex < movies.length) {
             var movieTitle = movies[movieIndex].data().title;
@@ -119,47 +103,43 @@ var displayMovie = () => {
             var movieDescription = "Here's a photo of a dog if you want to just chill..."
             var movieImageURL = "https://firebasestorage.googleapis.com/v0/b/cineder-3be64.appspot.com/o/movie_posters%2Fnomoremovies.png?alt=media&token=0adb5278-6d72-42c1-83cf-855e932b8eae"
 
-
             document.getElementById('imdbButton').setAttribute("href", "./matches.html");
             document.getElementById("imdb_button").childNodes[0].nodeValue="See Matches!";;
-
-            
         }
 
         document.getElementById('displayed-movie-image').setAttribute("src", movieImageURL);
-
         document.getElementById('displayed-movie-small').innerHTML = movieTitle;
         document.getElementById('displayed-director').innerHTML = movieDirector;
         document.getElementById('displayed-year').innerHTML = movieYear;
         document.getElementById('displayed-description').innerHTML = movieDescription;
-
-        
-
 }
 
 
 var displayGroupTitle = () => {
+    // Simple function that retrieves the current group, and displays the group on "swipe • collection.html"
+
     firebase.auth().onAuthStateChanged(function(user) {
         db.collection("userstwo").doc(user.uid).get().then(function(doc) {
-            console.log(doc.data().current_group)
             let groupName = doc.data().current_group
             document.getElementById('displayed-group-title').innerHTML = groupName;
         })
       });
 }
 
+
 displayGroupTitle()
 
 
-
-
 var approveMovie = () => {
-    //document.getElementById('yes').addEventListener('click', function () {
+    // Increments the movieIndex
+    // Increments the userIndex
+    // Allows user to approve of a movie they want to watch
+    // Adds the displayed movie to the current user's desired movie array
+    // Displays the next indexed movie.
 
     movieIndex++;
 
     if (movieIndex < movies.length) {
-        console.log("length.movies" + movies.length)
 
         var movieTitle = movies[movieIndex].data().title;
         var movieDirector = movies[movieIndex].data().director;
@@ -172,12 +152,8 @@ var approveMovie = () => {
 
         firebase.auth().onAuthStateChanged(function (user) {
             db.collection("userstwo").doc(user.uid).get().then(function (doc) {
-                console.log(user.uid)
-                console.log(doc.data())
-                console.log(doc.data().name)
     
                 var currentUser = db.collection("userstwo").doc(user.uid)
-
                 var movieTitle = movies[movieIndex - 1].data().title;
                 
                 currentUser.update({
@@ -201,7 +177,6 @@ var approveMovie = () => {
             db.collection("userstwo").doc(user.uid).get().then(function (doc) {
     
                 var currentUser = db.collection("userstwo").doc(user.uid)
-
                 var movieToAdd = movies[movieIndex - 1].data().title;
                 
                 currentUser.update({
@@ -224,7 +199,6 @@ var approveMovie = () => {
     }
 
     document.getElementById('displayed-movie-image').setAttribute("src", movieImageURL);
-
     document.getElementById('displayed-movie-small').innerHTML = movieTitle;
     document.getElementById('displayed-director').innerHTML = movieDirector;
     document.getElementById('displayed-year').innerHTML = movieYear;
@@ -233,7 +207,11 @@ var approveMovie = () => {
 
 }
 
+
 var disapproveMovie = () => {
+    // Increments the movieIndex
+    // Increments the userIndex
+    // Displays the next indexed movie.
     
     movieIndex++;
     
@@ -273,15 +251,12 @@ var disapproveMovie = () => {
             db.collection("userstwo").doc(user.uid).get().then(function (doc) {
     
                 var currentUser = db.collection("userstwo").doc(user.uid)
-
-                var movieToAdd = movies[movieIndex - 1].data().title;
                 
                 currentUser.update({
                     last_swipe_index: movieIndex
                 })
             })
         })
-
     } else {
         var movieTitle = ""
         var movieDirector = "You've gone through all the movies!"
@@ -294,11 +269,8 @@ var disapproveMovie = () => {
         document.getElementById("imdb_button").childNodes[0].nodeValue="See Matches!";;
     }
 
-    //document.getElementById('yes').addEventListener('click', function () {
-    
     document.getElementById('displayed-movie-image').setAttribute("src", movieImageURL);
 
-    // document.getElementById('displayed-movie').innerHTML = movieTitle;
     document.getElementById('displayed-movie-small').innerHTML = movieTitle;
     document.getElementById('displayed-director').innerHTML = movieDirector;
     document.getElementById('displayed-year').innerHTML = movieYear;
@@ -310,11 +282,13 @@ var disapproveMovie = () => {
     console.log(movieTitle);
 }
 
+
 yes.onclick = approveMovie;
 no.onclick = disapproveMovie;
 
 
 function getMovies() {
+    // Access and returns the "movies" collection
     db.collection("movies")
         .get()
         .then(function (snap) {
@@ -324,42 +298,3 @@ function getMovies() {
 
 getMovies();
 
-
-// // Additional Functions
-
-
-var currentUserEmail;
-
-function getUser() {
-
-    let p = new Promise((resolve, reject) => {
-        firebase.auth().onAuthStateChanged(function (user) {
-            if (user) {
-                resolve(user)
-            } else {
-                // No user is signed in.
-            }
-        })
-    })
-    p.then((user) => {
-        console.log("PROMISE getUser()")
-        return user.email
-    }).catch((user) => {
-        console.log("Something is going wrong.")
-    })
-}
-
-
-function printUserEmail() {
-    let printPromise = new Promise((resolve, reject) => {
-        var promiseUser = getUser()
-        if (promiseUser != undefined) {
-            resolve(promiseUser)
-        }
-    })
-    printPromise.then((message) => {
-        console.log(message)
-    })
-}
-
-printUserEmail();

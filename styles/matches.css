@@ -1,0 +1,78 @@
+/* CSS for swipe • matches.html */
+
+img {
+    width: 200px;
+    height: 300px;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  h6 {
+    font-weight: 200;
+  }
+
+  #body_container {
+      height: fit-content;
+      text-align: center;
+      background-color: #0E0F0f;
+  }
+
+  #matches_container {
+    text-align: center;
+    height: fit-content;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  #group_title {
+      text-align: center;
+      border: 1px solid black;
+  }
+
+  
+  .col-sm {
+      padding: 20px;
+      border: 1px solid #333;
+  }
+
+  .match_col {
+    float: left;
+    border: solid #333 1px;
+    text-align: center;
+    margin: 5px
+  }
+  
+  .match_text {
+    float: left;
+    padding: 20px;
+  }
+
+  .container {
+    background-color: #0E0F0f;
+  }
+  
+  body {
+    background-color: #0E0F0f;
+    color: white
+  }
+
+  #displayed-group-title {
+    color: gold;
+  }
+
+  .div {
+    border: solid gold 5px;
+  }
+
+  button {
+    background-color: #0E0F0f;
+    color: gold;
+    margin-top: 4%;
+    text-align: center;
+  }
